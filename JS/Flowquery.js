@@ -1,33 +1,29 @@
 const RAW_ARG = $argument || "";
 
-// 从原始 $argument 中按键名安全抽取值（允许值中包含 &）
-function extractArg(raw, key, nextKeys) {
-  const startTag = key + "=";
-  const i = raw.indexOf(startTag);
-  if (i === -1) return "";
-  const start = i + startTag.length;
-  let end = raw.length;
-  for (const nk of nextKeys) {
-    const j = raw.indexOf("&" + nk + "=", start);
-    if (j !== -1) end = Math.min(end, j);
-  }
-  const slice = raw.slice(start, end);
-  try { return decodeURIComponent(slice); } catch { return slice; }
-}
-
-// 松散解析其它参数（非 URL）
-function parseLoose(raw) {
-  const out = {};
-  raw.split("&").filter(Boolean).forEach(kv => {
-    const [k, ...rest] = kv.split("=");
-    if (!k) return;
-    const v = rest.join("=");
-    try { out[k] = decodeURIComponent(v || ""); } catch { out[k] = v || ""; }
+// 解析所有参数为对象
+function parseArgs(raw) {
+  const args = {};
+  if (!raw) return args;
+  
+  raw.split("&").forEach(item => {
+    if (!item) return;
+    const eqIndex = item.indexOf("=");
+    if (eqIndex === -1) return;
+    
+    const key = item.substring(0, eqIndex);
+    const value = item.substring(eqIndex + 1);
+    
+    try {
+      args[key] = decodeURIComponent(value);
+    } catch {
+      args[key] = value;
+    }
   });
-  return out;
+  
+  return args;
 }
 
-const args = parseLoose(RAW_ARG);
+const args = parseArgs(RAW_ARG);
 
 function getResetInfo(resetDay) {
   if (!resetDay) return ""; 
@@ -60,7 +56,7 @@ function httpGetFollow(url, headers, maxRedirect = 3) {
   return new Promise(resolve => {
     const tryGet = (link, left) => {
       $httpClient.get({ url: link, headers }, (err, resp) => {
-        if (err || !resp) return resolve({ err: true, msg: "请求错误" });
+        if (err || !resp) return resolve({ err: true });
         const status = resp.status ?? resp.statusCode ?? 0;
         
         if ([301, 302, 303, 307, 308].includes(status) && left > 0) {
@@ -75,14 +71,23 @@ function httpGetFollow(url, headers, maxRedirect = 3) {
   });
 }
 
+// 严格检查 URL 是否有效
+function isValidUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  const trimmed = url.trim();
+  if (trimmed === "") return false;
+  if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) return false;
+  return true;
+}
+
 async function fetchInfo(url, resetDay) {
-  if (!url || url.trim() === "") return null;
+  if (!isValidUrl(url)) return null;
   
   const headers = { "User-Agent": "Quantumult X/1.5.2 (iPhone; iOS 14.0; Scale/3.00)" };
-  const result = await httpGetFollow(url, headers, 3);
+  const result = await httpGetFollow(url.trim(), headers, 3);
   
   if (!result || result.err) {
-    return `订阅请求失败：${result.msg || "网络错误"}`;
+    return `订阅请求失败：网络错误`;
   }
   
   const { resp, status } = result;
@@ -125,22 +130,24 @@ async function fetchInfo(url, resetDay) {
 (async () => {
   const panels = [];
   
+  // 遍历 1-10 个可能的订阅（兼容更多订阅）
   for (let i = 1; i <= 10; i++) {
-    const NEXT_KEYS = [`url${i}`, `title${i}`, `resetDay${i}`];
+    const url = args[`url${i}`];
+    const title = args[`title${i}`];
+    const resetDayStr = args[`resetDay${i}`];
     
-    // 定界提取 URL（支持未编码的链接）
-    const url = extractArg(RAW_ARG, `url${i}`, NEXT_KEYS);
+    // 严格检查：只有 URL 有效才处理
+    if (!isValidUrl(url)) {
+      continue; // 跳过无效或未填写的订阅
+    }
     
-    // 强化空值检查：只有 URL 真正有内容才处理
-    if (!url || url.trim() === "") continue;
-    
-    const title = args[`title${i}`] || "";
-    const resetDay = args[`resetDay${i}`] ? parseInt(args[`resetDay${i}`]) : null;
-    
+    const resetDay = resetDayStr ? parseInt(resetDayStr) : null;
     const content = await fetchInfo(url, resetDay);
-    if (!content) continue; // 跳过返回 null 的情况
     
-    // 只有填写了标题才显示"机场：xxx"前缀
+    // fetchInfo 返回 null 表示 URL 无效，跳过
+    if (content === null) continue;
+    
+    // 组装显示内容
     if (title && title.trim() !== "") {
       panels.push(`机场：${title}\n${content}`);
     } else {
