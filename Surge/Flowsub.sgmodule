@@ -1,23 +1,23 @@
 #!name=订阅流量查询
 #!desc=显示机场剩余流量信息，支持最多5个订阅，未填写不显示
-#!category=机场流量信息
-#!arguments=A名称:,A地址:,A重置:,A图标:antenna.radiowaves.left.and.right.circle.fill,A颜色:#00E28F,B名称:,B地址:,B重置:,B图标:antenna.radiowaves.left.and.right.circle.fill,B颜色:#4ECDC4,C名称:,C地址:,C重置:,C图标:antenna.radiowaves.left.and.right.circle.fill,C颜色:#FF6B6B,D名称:,D地址:,D重置:,D图标:antenna.radiowaves.left.and.right.circle.fill,D颜色:#FFB6C1,E名称:,E地址:,E重置:,E图标:antenna.radiowaves.left.and.right.circle.fill,E颜色:#87CEFA
+#!category=Panel
+#!arguments=A_NAME:,A_URL:,A_RESET_DAY:,A_ICON:antenna.radiowaves.left.and.right.circle.fill,A_COLOR:%2300E28F,B_NAME:,B_URL:,B_RESET_DAY:,B_ICON:antenna.radiowaves.left.and.right.circle.fill,B_COLOR:%234ECDC4,C_NAME:,C_URL:,C_RESET_DAY:,C_ICON:antenna.radiowaves.left.and.right.circle.fill,C_COLOR:%23FF6B6B,D_NAME:,D_URL:,D_RESET_DAY:,D_ICON:antenna.radiowaves.left.and.right.circle.fill,D_COLOR:%23FFB6C1,E_NAME:,E_URL:,E_RESET_DAY:,E_ICON:antenna.radiowaves.left.and.right.circle.fill,E_COLOR:%2387CEFA
 #!arguments-desc=[使用说明]\n\n⓵ 本模块不需要编码订阅地址\n⓶ 只填写需要的订阅，未填写的不会显示\n⓷ 支持百分比进度和重置日期\n⓸ 图标使用 SF Symbols 名称\n⓹ 颜色使用 HEX 格式（如 #00E28F）
 
 [Panel]
-{{{A名称}}}=script-name={{{A名称}}},update-interval=3600
-{{{B名称}}}=script-name={{{B名称}}},update-interval=3600
-{{{C名称}}}=script-name={{{C名称}}},update-interval=3600
-{{{D名称}}}=script-name={{{D名称}}},update-interval=3600
-{{{E名称}}}=script-name={{{E名称}}},update-interval=3600
+{{{A_NAME}}}=script-name={{{A_NAME}}},update-interval=3600
+{{{B_NAME}}}=script-name={{{B_NAME}}},update-interval=3600
+{{{C_NAME}}}=script-name={{{C_NAME}}},update-interval=3600
+{{{D_NAME}}}=script-name={{{D_NAME}}},update-interval=3600
+{{{E_NAME}}}=script-name={{{E_NAME}}},update-interval=3600
 
 [Script]
-{{{A名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=1&title={{{A名称}}}&url={{{A地址}}}&resetDay={{{A重置}}}&icon={{{A图标}}}&iconColor={{{A颜色}}}
+{{{A_NAME}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=1&title={{{A_NAME}}}&url={{{A_URL}}}&resetDay={{{A_RESET_DAY}}}&icon={{{A_ICON}}}&iconColor={{{A_COLOR}}}
 
-{{{B名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=2&title={{{B名称}}}&url={{{B地址}}}&resetDay={{{B重置}}}&icon={{{B图标}}}&iconColor={{{B颜色}}}
+{{{B_NAME}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=2&title={{{B_NAME}}}&url={{{B_URL}}}&resetDay={{{B_RESET_DAY}}}&icon={{{B_ICON}}}&iconColor={{{B_COLOR}}}
 
-{{{C名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=3&title={{{C名称}}}&url={{{C地址}}}&resetDay={{{C重置}}}&icon={{{C图标}}}&iconColor={{{C颜色}}}
+{{{C_NAME}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=3&title={{{C_NAME}}}&url={{{C_URL}}}&resetDay={{{C_RESET_DAY}}}&icon={{{C_ICON}}}&iconColor={{{C_COLOR}}}
 
-{{{D名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=4&title={{{D名称}}}&url={{{D地址}}}&resetDay={{{D重置}}}&icon={{{D图标}}}&iconColor={{{D颜色}}}
+{{{D_NAME}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=4&title={{{D_NAME}}}&url={{{D_URL}}}&resetDay={{{D_RESET_DAY}}}&icon={{{D_ICON}}}&iconColor={{{D_COLOR}}}
 
-{{{E名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=5&title={{{E名称}}}&url={{{E地址}}}&resetDay={{{E重置}}}&icon={{{E图标}}}&iconColor={{{E颜色}}}
+{{{E_NAME}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=5&title={{{E_NAME}}}&url={{{E_URL}}}&resetDay={{{E_RESET_DAY}}}&icon={{{E_ICON}}}&iconColor={{{E_COLOR}}}
