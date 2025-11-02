@@ -66,37 +66,36 @@ function fetchInfo(url, resetDay) {
 
 (async () => {
   const panels = [];
+  let debugLines = [];
 
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 5; i++) {
     const urlKey = `url${i}`;
     const titleKey = `title${i}`;
     const resetKey = `resetDay${i}`;
     
     const url = args[urlKey];
+    const title = args[titleKey];
+    
+    // 调试信息
+    debugLines.push(`订阅${i}: url="${url}" (长度${url ? url.length : 'undefined'}) title="${title}"`);
     
     // 严格检查：URL 必须存在、不为空、且去除空格后不为空
     if (!url || typeof url !== 'string' || url.trim() === '') {
-      continue; // 跳过未填写的订阅
+      debugLines.push(`  → 跳过（URL为空）`);
+      continue;
     }
     
+    debugLines.push(`  → 处理中...`);
     const content = await fetchInfo(url, args[resetKey] ? parseInt(args[resetKey]) : null);
     panels.push(args[titleKey] ? `机场：${args[titleKey]}\n${content}` : content);
   }
 
-  // 如果没有任何有效订阅，显示提示
-  if (panels.length === 0) {
-    $done({
-      title: "未配置",
-      content: "请在模块参数中填写至少一个订阅地址",
-      icon: "questionmark.circle",
-      "icon-color": "#999999"
-    });
-    return;
-  }
+  // 显示调试信息
+  const finalContent = debugLines.join("\n") + "\n\n===== 实际显示 =====\n\n" + (panels.length > 0 ? panels.join("\n\n") : "无有效订阅");
 
   $done({
-    title: "订阅流量",
-    content: panels.join("\n\n"),
+    title: "订阅流量(调试模式)",
+    content: finalContent,
     icon: "antenna.radiowaves.left.and.right.circle.fill",
     "icon-color": "#00E28F"
   });
