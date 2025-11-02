@@ -1,8 +1,8 @@
 #!name=订阅流量查询
 #!desc=显示机场剩余流量信息，支持最多5个订阅，未填写不显示
 #!category=机场流量信息
-#!arguments=A名称:,A地址:,A重置:,A图标:antenna.radiowaves.left.and.right.circle.fill,A颜色:#00E28F,B名称:,B地址:,B重置:,B图标:antenna.radiowaves.left.and.right.circle.fill,B颜色:#4ECDC4,C名称:,C地址:,C重置:,C图标:antenna.radiowaves.left.and.right.circle.fill,C颜色:#FF6B6B,D名称:,D地址:,D重置:,D图标:antenna.radiowaves.left.and.right.circle.fill,D颜色:#FFB6C1,E名称:,E地址:,E重置:,E图标:antenna.radiowaves.left.and.right.circle.fill,E颜色:#87CEFA
-#!arguments-desc=[使用说明]\n\n⓵ 本模块不需要编码订阅地址\n⓶ 只填写需要的订阅，未填写的不会显示\n⓷ 支持百分比进度和重置日期\n⓸ 图标使用 SF Symbols 名称\n⓹ 颜色使用 HEX 格式（如 #00E28F）\n\n[参数说明]\n• 名称：机场名字\n• 地址：完整订阅链接\n• 重置：每月重置日期（1-31）\n• 图标：SF Symbol 名称\n• 颜色：HEX 颜色代码
+#!arguments=A名称:,A地址:,A重置:,A图标:antenna.radiowaves.left.and.right.circle.fill,A颜色:%2300E28F,B名称:,B地址:,B重置:,B图标:antenna.radiowaves.left.and.right.circle.fill,B颜色:%234ECDC4,C名称:,C地址:,C重置:,C图标:antenna.radiowaves.left.and.right.circle.fill,C颜色:%23FF6B6B,D名称:,D地址:,D重置:,D图标:antenna.radiowaves.left.and.right.circle.fill,D颜色:%23FFB6C1,E名称:,E地址:,E重置:,E图标:antenna.radiowaves.left.and.right.circle.fill,E颜色:%2387CEFA
+#!arguments-desc=[使用说明]\n\n⓵ 本模块不需要编码订阅地址\n⓶ 只填写需要的订阅，未填写的不会显示\n⓷ 支持百分比进度和重置日期\n⓸ 图标使用 SF Symbols 名称\n⓹ 颜色使用 HEX 格式（如 #00E28F）\n\n[参数说明]\n• 名称：机场名字\n• 地址：完整订阅链接\n• 重置：每月重置日期（1-31）\n• 图标：SF Symbol 名称\n• 颜色：HEX 颜色代码（填写时使用 #）
 
 [Panel]
 订阅面板A=script-name=订阅面板A,update-interval=3600
