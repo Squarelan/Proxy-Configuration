@@ -75,7 +75,6 @@ function fetchInfo(url, resetDay) {
     const url = args[urlKey];
     const title = args[titleKey];
 
-    // ✅ 只有当 URL 和标题都存在时才渲染
     if (url && title) {
       const content = await fetchInfo(url, args[resetKey] ? parseInt(args[resetKey]) : null);
       panels.push(`机场：${title}\n${content}`);
