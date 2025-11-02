@@ -64,11 +64,34 @@ function fetchInfo(url, resetDay) {
   });
 }
 
+function isValidSubscriptionUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  const trimmed = url.trim();
+  if (trimmed === '') return false;
+  
+  const invalidPatterns = [
+    '机场订阅链接',
+    '机场名称',
+    '第一个',
+    '第二个',
+    '第三个',
+    '第四个',
+    '第五个'
+  ];
+  
+  for (const pattern of invalidPatterns) {
+    if (trimmed.includes(pattern)) return false;
+  }
+  
+  if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) return false;
+  
+  return true;
+}
+
 (async () => {
   const panels = [];
-  let debugLines = [];
 
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 10; i++) {
     const urlKey = `url${i}`;
     const titleKey = `title${i}`;
     const resetKey = `resetDay${i}`;
@@ -76,26 +99,29 @@ function fetchInfo(url, resetDay) {
     const url = args[urlKey];
     const title = args[titleKey];
     
-    // 调试信息
-    debugLines.push(`订阅${i}: url="${url}" (长度${url ? url.length : 'undefined'}) title="${title}"`);
-    
-    // 严格检查：URL 必须存在、不为空、且去除空格后不为空
-    if (!url || typeof url !== 'string' || url.trim() === '') {
-      debugLines.push(`  → 跳过（URL为空）`);
+    if (!isValidSubscriptionUrl(url)) {
       continue;
     }
     
-    debugLines.push(`  → 处理中...`);
+    const validTitle = title && !title.includes('机场名称') && !title.includes('第') ? title : null;
+    
     const content = await fetchInfo(url, args[resetKey] ? parseInt(args[resetKey]) : null);
-    panels.push(args[titleKey] ? `机场：${args[titleKey]}\n${content}` : content);
+    panels.push(validTitle ? `机场：${validTitle}\n${content}` : content);
   }
 
-  // 显示调试信息
-  const finalContent = debugLines.join("\n") + "\n\n===== 实际显示 =====\n\n" + (panels.length > 0 ? panels.join("\n\n") : "无有效订阅");
+  if (panels.length === 0) {
+    $done({
+      title: "未配置",
+      content: "请在模块参数中填写至少一个订阅地址",
+      icon: "questionmark.circle",
+      "icon-color": "#999999"
+    });
+    return;
+  }
 
   $done({
-    title: "订阅流量(调试模式)",
-    content: finalContent,
+    title: "订阅流量",
+    content: panels.join("\n\n"),
     icon: "antenna.radiowaves.left.and.right.circle.fill",
     "icon-color": "#00E28F"
   });
