@@ -65,26 +65,37 @@ function fetchInfo(url, resetDay) {
 }
 
 (async () => {
-  const panels = [];
-
+  // 只处理第一个有效订阅项（用于动态面板）
   for (let i = 1; i <= 10; i++) {
     const urlKey = `url${i}`;
     const titleKey = `title${i}`;
     const resetKey = `resetDay${i}`;
+    const iconKey = `icon`;
+    const colorKey = `icon-color`;
 
     const url = args[urlKey];
     const title = args[titleKey];
+    const reset = args[resetKey];
+    const icon = args[iconKey] || "antenna.radiowaves.left.and.right.circle.fill";
+    const color = args[colorKey] || "#00E28F";
 
     if (url && title) {
-      const content = await fetchInfo(url, args[resetKey] ? parseInt(args[resetKey]) : null);
-      panels.push(`机场：${title}\n${content}`);
+      const content = await fetchInfo(url, reset ? parseInt(reset) : null);
+      $done({
+        title: title,
+        content: content,
+        icon: icon,
+        "icon-color": color
+      });
+      return;
     }
   }
 
+  // 如果没有有效订阅项
   $done({
     title: "订阅流量",
-    content: panels.length > 0 ? panels.join("\n\n") : "未填写有效订阅信息",
-    icon: "antenna.radiowaves.left.and.right.circle.fill",
-    "icon-color": "#00E28F"
+    content: "未填写有效订阅信息",
+    icon: "xmark.circle",
+    "icon-color": "#CCCCCC"
   });
 })();
