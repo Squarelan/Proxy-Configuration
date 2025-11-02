@@ -5,19 +5,19 @@
 #!arguments-desc=[使用说明]\n\n⓵ 本模块不需要编码订阅地址\n⓶ 只填写需要的订阅，未填写的不会显示\n⓷ 支持百分比进度和重置日期\n⓸ 图标使用 SF Symbols 名称\n⓹ 颜色使用 HEX 格式（如 #00E28F）\n\n[参数说明]\n• 名称：机场名字\n• 地址：完整订阅链接\n• 重置：每月重置日期（1-31）\n• 图标：SF Symbol 名称\n• 颜色：HEX 颜色代码（填写时使用 #）
 
 [Panel]
-订阅面板A=script-name=订阅面板A,update-interval=3600
-订阅面板B=script-name=订阅面板B,update-interval=3600
-订阅面板C=script-name=订阅面板C,update-interval=3600
-订阅面板D=script-name=订阅面板D,update-interval=3600
-订阅面板E=script-name=订阅面板E,update-interval=3600
+{{{A名称}}}=script-name={{{A名称}}},update-interval=3600
+{{{B名称}}}=script-name={{{B名称}}},update-interval=3600
+{{{C名称}}}=script-name={{{C名称}}},update-interval=3600
+{{{D名称}}}=script-name={{{D名称}}},update-interval=3600
+{{{E名称}}}=script-name={{{E名称}}},update-interval=3600
 
 [Script]
-订阅面板A=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=1&title={{{A名称}}}&url={{{A地址}}}&resetDay={{{A重置}}}&icon={{{A图标}}}&iconColor={{{A颜色}}}
+{{{A名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=1&title={{{A名称}}}&url={{{A地址}}}&resetDay={{{A重置}}}&icon={{{A图标}}}&iconColor={{{A颜色}}}
 
-订阅面板B=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=2&title={{{B名称}}}&url={{{B地址}}}&resetDay={{{B重置}}}&icon={{{B图标}}}&iconColor={{{B颜色}}}
+{{{B名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=2&title={{{B名称}}}&url={{{B地址}}}&resetDay={{{B重置}}}&icon={{{B图标}}}&iconColor={{{B颜色}}}
 
-订阅面板C=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=3&title={{{C名称}}}&url={{{C地址}}}&resetDay={{{C重置}}}&icon={{{C图标}}}&iconColor={{{C颜色}}}
+{{{C名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=3&title={{{C名称}}}&url={{{C地址}}}&resetDay={{{C重置}}}&icon={{{C图标}}}&iconColor={{{C颜色}}}
 
-订阅面板D=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=4&title={{{D名称}}}&url={{{D地址}}}&resetDay={{{D重置}}}&icon={{{D图标}}}&iconColor={{{D颜色}}}
+{{{D名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=4&title={{{D名称}}}&url={{{D地址}}}&resetDay={{{D重置}}}&icon={{{D图标}}}&iconColor={{{D颜色}}}
 
-订阅面板E=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=5&title={{{E名称}}}&url={{{E地址}}}&resetDay={{{E重置}}}&icon={{{E图标}}}&iconColor={{{E颜色}}}
+{{{E名称}}}=type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/refs/heads/main/JS/Flowquery.js,script-update-interval=0,argument=index=5&title={{{E名称}}}&url={{{E地址}}}&resetDay={{{E重置}}}&icon={{{E图标}}}&iconColor={{{E颜色}}}
