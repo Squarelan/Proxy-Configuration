@@ -7,7 +7,7 @@ $argument.split("&").forEach(p => {
 });
 
 function getResetInfo(resetDay) {
-  if (!resetDay) return "";
+  if (!resetDay || resetDay === '') return "";
   const today = new Date();
   const nowDay = today.getDate();
   const nowMonth = today.getMonth();
@@ -28,7 +28,7 @@ function fetchInfo(url, resetDay) {
   return new Promise(resolve => {
     $httpClient.get({ url, headers: { "User-Agent": "Quantumult%20X/1.5.2" } }, (err, resp) => {
       if (err || !resp || resp.status !== 200) {
-        resolve(`订阅请求失败，状态码：${resp ? resp.status : "请求错误"}`);
+        resolve(null);
         return;
       }
 
@@ -65,35 +65,40 @@ function fetchInfo(url, resetDay) {
 }
 
 (async () => {
-  for (let i = 1; i <= 5; i++) {
-    const urlKey = `url${i}`;
-    const titleKey = `title${i}`;
-    const resetKey = `resetDay${i}`;
-    const iconKey = `icon${i}`;
-    const colorKey = `iconColor${i}`;
+  const url = args.url;
+  const title = args.title || "订阅流量";
+  const resetDay = args.resetDay;
+  const icon = args.icon || "antenna.radiowaves.left.and.right.circle.fill";
+  const iconColor = args.iconColor || "#00E28F";
 
-    const url = args[urlKey];
-    const title = args[titleKey];
-    const reset = args[resetKey];
-    const icon = args[iconKey] || "antenna.radiowaves.left.and.right.circle.fill";
-    const color = args[colorKey] || "#00E28F";
+  // 检查是否填写了订阅地址
+  if (!url || url.trim() === '') {
+    $done({
+      title: "未配置",
+      content: "请在模块参数中填写订阅地址",
+      icon: "questionmark.circle",
+      "icon-color": "#999999"
+    });
+    return;
+  }
 
-    if (url && title) {
-      const content = await fetchInfo(url, reset ? parseInt(reset) : null);
-      $done({
-        title: title,
-        content: content,
-        icon: icon,
-        "icon-color": color
-      });
-      return;
-    }
+  // 获取订阅信息
+  const content = await fetchInfo(url, resetDay ? parseInt(resetDay) : null);
+
+  if (!content) {
+    $done({
+      title: title,
+      content: "订阅请求失败\n请检查订阅地址是否正确",
+      icon: "exclamationmark.triangle.fill",
+      "icon-color": "#FF9500"
+    });
+    return;
   }
 
   $done({
-    title: "订阅流量",
-    content: "未填写有效订阅信息",
-    icon: "xmark.circle",
-    "icon-color": "#CCCCCC"
+    title: title,
+    content: content,
+    icon: icon,
+    "icon-color": iconColor
   });
 })();
