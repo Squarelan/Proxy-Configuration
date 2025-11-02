@@ -1,0 +1,9 @@
+#!name=Swiftgram
+#!desc=Telegram外部链接跳转至Swiftgram
+#!openUrl=https://apps.apple.com/app/id6471879502
+
+[URL Rewrite]
+(https:\/\/)?t\.me\/(.+) sg://resolve?domain=$2 302
+
+[MITM]
+hostname = %APPEND% t.me
