@@ -56,42 +56,52 @@ function fetchInfo(url, resetDay) {
       }
 
       if (resetDay) {
-        lines.push(getResetInfo(resetDay));
-      }
+        lines
 
-      resolve(lines.join("\n"));
-    });
-  });
+.push(getResetInfo(resetDay));
+}
+
+  resolve(lines.join("\n"));
+});
+
+});
 }
 
 (async () => {
-  const panels = [];
-  
-  // 调试：看看实际接收到什么参数
-  let debugInfo = "参数调试：\n";
-  for (let i = 1; i <= 5; i++) {
-    const url = args[`url${i}`];
-    const title = args[`title${i}`];
-    debugInfo += `\n${i}. title="${title}" url="${url}" (长度:${url ? url.length : 0})`;
-  }
-  console.log(debugInfo);
+const panels = [];
 
-  for (let i = 1; i <= 10; i++) {
-    const urlKey = `url${i}`;
-    const titleKey = `title${i}`;
-    const resetKey = `resetDay${i}`;
-    
-    // 完全按原脚本的条件
-    if (args[urlKey]) {
-      const content = await fetchInfo(args[urlKey], args[resetKey] ? parseInt(args[resetKey]) : null);
-      panels.push(args[titleKey] ? `机场：${args[titleKey]}\n${content}` : content);
-    }
-  }
+for (let i = 1; i <= 10; i++) {
+const urlKey = url${i};
+const titleKey = title${i};
+const resetKey = resetDay${i};
 
-  $done({
-    title: "订阅流量",
-    content: panels.length > 0 ? panels.join("\n\n") : debugInfo,
-    icon: "antenna.radiowaves.left.and.right.circle.fill",
-    "icon-color": "#00E28F"
-  });
+const url = args[urlKey];
+
+// 严格检查：URL 必须存在、不为空、且去除空格后不为空
+if (!url || typeof url !== 'string' || url.trim() === '') {
+  continue; // 跳过未填写的订阅
+}
+
+const content = await fetchInfo(url, args[resetKey] ? parseInt(args[resetKey]) : null);
+panels.push(args[titleKey] ? `机场：${args[titleKey]}\n${content}` : content);
+
+}
+
+// 如果没有任何有效订阅，显示提示
+if (panels.length === 0) {
+$done({
+title: "未配置",
+content: "请在模块参数中填写至少一个订阅地址",
+icon: "questionmark.circle",
+"icon-color": "#999999"
+});
+return;
+}
+
+$done({
+title: "订阅流量",
+content: panels.join("\n\n"),
+icon: "antenna.radiowaves.left.and.right.circle.fill",
+"icon-color": "#00E28F"
+});
 })();
