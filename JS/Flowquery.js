@@ -65,13 +65,12 @@ function fetchInfo(url, resetDay) {
 }
 
 (async () => {
-  // 只处理第一个有效订阅项（用于动态面板）
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 5; i++) {
     const urlKey = `url${i}`;
     const titleKey = `title${i}`;
     const resetKey = `resetDay${i}`;
-    const iconKey = `icon`;
-    const colorKey = `icon-color`;
+    const iconKey = `icon${i}`;
+    const colorKey = `iconColor${i}`;
 
     const url = args[urlKey];
     const title = args[titleKey];
@@ -91,7 +90,6 @@ function fetchInfo(url, resetDay) {
     }
   }
 
-  // 如果没有有效订阅项
   $done({
     title: "订阅流量",
     content: "未填写有效订阅信息",
