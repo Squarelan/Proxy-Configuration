@@ -1,0 +1,27 @@
+#!name=订阅流量查询
+#!desc=显示机场剩余流量信息，支持5个订阅显示，支持百分比进度，支持订阅套餐重置日期
+#!category=机场流量信息
+#!arguments=A名称:第一个机场名称,A地址:第一个机场订阅地址,A重置:流量重置日期,B名称:第二个机场名称,B地址:第二个机场订阅地址,B重置:流量重置日期,C名称:第三个机场名称,C地址:第三个机场订阅地址,C重置:流量重置日期,D名称:第四个机场名称,D地址:第四个机场订阅地址,D重置:流量重置日期,E名称:第五个机场名称,E地址:第五个机场订阅地址,E重置:流量重置日期
+#!arguments-desc=[参数设置]\n\n⓵ 本模块不需要编码订阅地址可直接使用\n\n⓶ ABCDE代表不同订阅的地址和备注名称以及流量重置日期\n\n⓷ 支持导入5个订阅显示\n\n⓸ 支持百分比进度\n\n⓹ 支持订阅套餐重置填写重置日期
+
+[Panel]
+订阅面板A=script-name=订阅面板A,update-interval=3600
+
+订阅面板B=script-name=订阅面板B,update-interval=3600
+
+订阅面板C=script-name=订阅面板C,update-interval=3600
+
+订阅面板D=script-name=订阅面板D,update-interval=3600
+
+订阅面板E=script-name=订阅面板E,update-interval=3600
+
+[Script]
+订阅面板A=type=generic,timeout=10,script-path=https://github.com/z-jinke/Panel/raw/refs/heads/main/Js/Flowquery.js,script-update-interval=0,argument=title1={{{A名称}}}&url1={{{A地址}}}&resetDay1={{{A重置}}}
+
+订阅面板B=type=generic,timeout=10,script-path=https://github.com/z-jinke/Panel/raw/refs/heads/main/Js/Flowquery.js,script-update-interval=0,argument=title2={{{B名称}}}&url2={{{B地址}}}&resetDay2={{{B重置}}}
+
+订阅面板C=type=generic,timeout=10,script-path=https://github.com/z-jinke/Panel/raw/refs/heads/main/Js/Flowquery.js,script-update-interval=0,argument=title3={{{C名称}}}&url3={{{C地址}}}&resetDay3={{{C重置}}}
+
+订阅面板D=type=generic,timeout=10,script-path=https://github.com/z-jinke/Panel/raw/refs/heads/main/Js/Flowquery.js,script-update-interval=0,argument=title4={{{D名称}}}&url4={{{D地址}}}&resetDay4={{{D重置}}}
+
+订阅面板E=type=generic,timeout=10,script-path=https://github.com/z-jinke/Panel/raw/refs/heads/main/Js/Flowquery.js,script-update-interval=0,argument=title5={{{E名称}}}&url5={{{E地址}}}&resetDay5={{{E重置}}}
