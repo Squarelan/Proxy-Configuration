@@ -1,6 +1,16 @@
 # Proxy-Configuration
+
+![GitHub last commit](https://img.shields.io/github/last-commit/Squarelan/Proxy-Configuration)
+![GitHub repo size](https://img.shields.io/github/repo-size/Squarelan/Proxy-Configuration)
+![License](https://img.shields.io/github/license/Squarelan/Proxy-Configuration)
+
 个人自用代理软件配置仓库，主要是Surge、Loon、Egern、Shadowrocket、Stash、Quantumult X等的配置文件。
-## 📦 Surge 模块列表
+## 目录
+
+- [📦 模块列表](#-模块列表)
+- [📖 使用说明](#-使用说明)
+- [💡 说明](#-说明)
+## 📦 模块列表
 
 <table>
 	<thead>
@@ -39,7 +49,7 @@
 		</tr>
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">今日天气</td>
-			<td style="vertical-align:middle; padding:8px 12px">实时天气信息面板，显示当前天气与简要预报，适合集成到 Sur ge 面板中。</td>
+			<td style="vertical-align:middle; padding:8px 12px">实时天气信息面板，显示当前天气与简要预报，适合集成到 Surge 面板中。</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
 				<div style="display:inline-flex; flex-direction:column; align-items:center; gap:6px;">
 					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(3).png" width="30" alt="Surge"/> <strong>Surge</strong></span>
@@ -59,9 +69,19 @@
 - 在 Surge/Egern 中导入模块
 
 **方式二：手动复制添加**
-- 订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
-- Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
-- 今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+
+在 Surge/Egern 配置文件的 `[Module]` 区块添加：
+
+```ini
+订阅流量查询 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
+Swiftgram跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
+今日天气 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+```
+或单独复制链接：
+
+订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
+Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
+今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
 
 ---
 
