@@ -48,18 +48,6 @@
 			<td style="vertical-align:middle; padding:8px 12px">代码提供：<a href="https://t.me/iBL3ND">tg@iBL3ND</a></td>
 		</tr>
 		<tr>
-			<td style="vertical-align:middle; padding:8px 12px">Telegram 跳转 Turrit</td>
-			<td style="vertical-align:middle; padding:8px 12px">点击Telegram链接后自动在设备上跳转到 Turrit 客户端以打开对应聊天或链接。</td>
-			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
-				<div style="display:inline-flex; flex-direction:column; align-items:center; gap:6px;">
-					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(3).png" width="30" alt="Surge"/> <strong>Surge</strong></span>
-					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Egern.png" width="30" alt="Egern"/> <strong>Egern</strong></span>
-				</div>
-			</td>
-			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule">📥安装</a></td>
-			<td style="vertical-align:middle; padding:8px 12px">/</td>
-		</tr>
-		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">今日天气</td>
 			<td style="vertical-align:middle; padding:8px 12px">实时天气信息面板，显示当前天气与简要预报，适合集成到 Surge 面板中。</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
@@ -70,6 +58,18 @@
 			</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule">📥安装</a></td>
 			<td style="vertical-align:middle; padding:8px 12px">原模块：<a href="https://whatshub.top/sgmodule/tianqi.sgmodule">whatshub.top</a><br/>代码提供：tg@이지은</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:middle; padding:8px 12px">Telegram 跳转 Turrit</td>
+			<td style="vertical-align:middle; padding:8px 12px">点击Telegram链接后自动在设备上跳转到 Turrit 客户端以打开对应聊天或链接。</td>
+			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
+				<div style="display:inline-flex; flex-direction:column; align-items:center; gap:6px;">
+					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(3).png" width="30" alt="Surge"/> <strong>Surge</strong></span>
+					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Egern.png" width="30" alt="Egern"/> <strong>Egern</strong></span>
+				</div>
+			</td>
+			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule">📥安装</a></td>
+			<td style="vertical-align:middle; padding:8px 12px">/</td>
 		</tr>
 	</tbody>
 </table>
