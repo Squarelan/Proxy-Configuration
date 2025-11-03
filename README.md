@@ -37,7 +37,7 @@
 		</tr>
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">Telegram 跳转 Swiftgram</td>
-			<td style="vertical-align:middle; padding:8px 12px">点击消息或按钮后自动在设备上跳转到 Swiftgram 客户端以打开对应聊天或链接。</td>
+			<td style="vertical-align:middle; padding:8px 12px">点击Telegram链接后自动在设备上跳转到 Swiftgram 客户端以打开对应聊天或链接。</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
 				<div style="display:inline-flex; flex-direction:column; align-items:center; gap:6px;">
 					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(3).png" width="30" alt="Surge"/> <strong>Surge</strong></span>
@@ -46,6 +46,18 @@
 			</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule">📥安装</a></td>
 			<td style="vertical-align:middle; padding:8px 12px">代码提供：<a href="https://t.me/iBL3ND">tg@iBL3ND</a></td>
+		</tr>
+		<tr>
+			<td style="vertical-align:middle; padding:8px 12px">Telegram 跳转 Turrit</td>
+			<td style="vertical-align:middle; padding:8px 12px">点击Telegram链接后自动在设备上跳转到 Turrit 客户端以打开对应聊天或链接。</td>
+			<td style="vertical-align:middle; text-align:center; padding:8px 12px">
+				<div style="display:inline-flex; flex-direction:column; align-items:center; gap:6px;">
+					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(3).png" width="30" alt="Surge"/> <strong>Surge</strong></span>
+					<span style="display:inline-flex; align-items:center; gap:8px;"><img src="https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Egern.png" width="30" alt="Egern"/> <strong>Egern</strong></span>
+				</div>
+			</td>
+			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule">📥安装</a></td>
+			<td style="vertical-align:middle; padding:8px 12px">代码提供：/</td>
 		</tr>
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">今日天气</td>
@@ -76,12 +88,14 @@
 订阅流量查询 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
 Swiftgram跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
 今日天气 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+Turrit跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule
 ```
 或单独复制链接：
 
 - 订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
 - Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
 - 今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+- Turrit跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule
 
 ---
 
