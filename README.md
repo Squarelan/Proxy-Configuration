@@ -79,9 +79,9 @@ Swiftgram跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuratio
 ```
 或单独复制链接：
 
-订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
-Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
-今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+- 订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
+- Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
+- 今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
 
 ---
 
