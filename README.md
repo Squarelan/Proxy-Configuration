@@ -57,7 +57,7 @@
 				</div>
 			</td>
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Turrit.sgmodule">📥安装</a></td>
-			<td style="vertical-align:middle; padding:8px 12px">代码提供：/</td>
+			<td style="vertical-align:middle; padding:8px 12px">/</td>
 		</tr>
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">今日天气</td>
