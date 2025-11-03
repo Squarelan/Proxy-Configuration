@@ -25,7 +25,6 @@
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule">📥安装</a></td>
 			<td style="vertical-align:middle; padding:8px 12px">参考：<a href="https://github.com/z-jinke/Panel">z-jinke/Panel</a></td>
 		</tr>
-
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">Telegram 跳转 Swiftgram</td>
 			<td style="vertical-align:middle; padding:8px 12px">点击消息或按钮后自动在设备上跳转到 Swiftgram 客户端以打开对应聊天或链接。</td>
@@ -38,7 +37,6 @@
 			<td style="vertical-align:middle; text-align:center; padding:8px 12px"><a href="https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule">📥安装</a></td>
 			<td style="vertical-align:middle; padding:8px 12px">代码提供：<a href="https://t.me/iBL3ND">tg@iBL3ND</a></td>
 		</tr>
-
 		<tr>
 			<td style="vertical-align:middle; padding:8px 12px">今日天气</td>
 			<td style="vertical-align:middle; padding:8px 12px">实时天气信息面板，显示当前天气与简要预报，适合集成到 Sur ge 面板中。</td>
