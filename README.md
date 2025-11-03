@@ -4,9 +4,9 @@
 
 | 模块名称 | 描述 | 支持客户端 | 链接 | 参考/提供 |
 |:--------|:-----|:----------|:-----|:---------|
-| 订阅流量查询（合并版） | 显示机场剩余流量信息，支持最多5个订阅，自动隐藏未填写项 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥 安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule) | 参考：[z-jinke/Panel](https://github.com/z-jinke/Panel) |
-| Telegram 跳转 Swiftgram | 自动跳转到 Swiftgram 客户端 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥 安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule) | 代码提供：[@iBL3ND](https://t.me/iBL3ND) |
-| 今日天气 | 显示实时天气信息面板 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥 安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule) | 原模块：[whatshub.top](https://whatshub.top/sgmodule/tianqi.sgmodule)<br>代码提供：[@이지은](https://t.me/) |
+| 订阅流量查询（合并版） | 显示机场剩余流量信息，支持最多5个订阅，自动隐藏未填写项 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule) | 参考：[z-jinke/Panel](https://github.com/z-jinke/Panel) |
+| Telegram 跳转 Swiftgram | 自动跳转到 Swiftgram 客户端 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule) | 代码提供：[tg@iBL3ND](https://t.me/iBL3ND) |
+| 今日天气 | 显示实时天气信息面板 | ![Surge](https://img.shields.io/badge/Surge-0078D4?style=flat-square&logo=v2ray&logoColor=white) ![Egern](https://img.shields.io/badge/Egern-FF6B35?style=flat-square) | [📥安装](https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule) | 原模块：[whatshub.top](https://whatshub.top/sgmodule/tianqi.sgmodule)<br>代码提供：[tg@이지은] |
 
 ### 📖 使用说明
 
@@ -14,13 +14,10 @@
 - 点击上方对应模块的「📥 安装」链接
 - 在 Surge/Egern 中导入模块
 
-**方式二：手动添加**
-
-[Module]
-订阅流量查询 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
-Swiftgram跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
-今日天气 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
-
+**方式二：手动复制添加**
+- 订阅流量查询:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
+- Swiftgram跳转:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
+- 今日天气:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
 
 ---
 
