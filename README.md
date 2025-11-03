@@ -15,9 +15,9 @@
 - 在 Surge/Egern 中导入模块
 
 **方式二：手动复制添加**
-- 订阅流量查询:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
-- Swiftgram跳转:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
-- 今日天气:https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
+- 订阅流量查询：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Flowsub.sgmodule
+- Swiftgram跳转：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Swiftgram.sgmodule
+- 今日天气：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Surge/Tianqi.sgmodule
 
 ---
 
