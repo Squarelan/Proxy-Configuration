@@ -1,0 +1,9 @@
+#!name=Telegram跳转Turrit
+#!desc=Telegram外部链接跳转至Turrit
+#!openUrl=https://apps.apple.com/app/id6471781238
+
+[URL Rewrite]
+(https:\/\/)?t.me\/(.+) turrit://resolve?domain=$2 302
+
+[MITM]
+hostname = %APPEND% t.me
