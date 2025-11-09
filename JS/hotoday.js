@@ -11,7 +11,7 @@
 BoxJS订阅地址：https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/boxjs.json
 
 [task_local]
-30 6-23 * * * https://raw.githubusercontent.com/Proxy-Configuration/main/JS/hotoday.js, tag=今日热搜, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/hot.png, enabled=true
+30 6-23 * * * https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/hotoday.js, tag=今日热搜, img-url=https://raw.githubusercontent.com/Toperlock/Quantumult/main/icon/hot.png, enabled=true
 
 ******************************************/
 const $ = new Env("今日热搜");
