@@ -222,20 +222,21 @@ async function showMsg(n, o, i, t = {}) {
   const content = [i];
   if (showTime && t.updateTime) {
     content.push(`🕒 更新时间: ${t.updateTime}`);
-    }
-    const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
-    const mediaUrl = t?.["media-url"] || t?.mediaUrl || t?.$media;
-    openUrl && content.push(`🔗打开链接: ${openUrl}`);
-    mediaUrl && content.push(`🎬媒体链接: ${mediaUrl}`);
+  }
+  const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
+  const mediaUrl = t?.["media-url"] || t?.mediaUrl || t?.$media;
+  openUrl && content.push(`🔗打开链接: ${openUrl}`);
+  mediaUrl && content.push(`🎬媒体链接: ${mediaUrl}`);
+
+  if ($.isNode()) {
     $.log("==============📣系统通知📣==============", n, o, content.join("\n"));
     try {
-      await notify.sendNotify(`${n}\n${o}`, content.join("\n"));
+      await notify?.sendNotify?.(`${n}\n${o}`, content.join("\n"));
     } catch (e) {
-      $.warn("没有找到sendNotify.js文件 不发送通知");
+      $.warn("没有找到 sendNotify.js 文件，不发送通知");
     }
   } else {
-    // !$.notifyWithMedia && ['media-url', 'mediaUrl', '$media'].map((key) => delete t[key])
-    await $.msg(n, o, i, t);
+    await $.msg(n, o, content.join("\n"));
   }
 }
 function getUA(item = {}) {
