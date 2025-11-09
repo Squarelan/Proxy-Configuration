@@ -256,7 +256,7 @@ async function showMsg(n, o, i, t = {}) {
       $.warn("没有找到 sendNotify.js 文件，不发送通知");
     }
   } else {
-    await $.msg(n, o, content.join("\n"));
+    await $.msg(n, o, content.join("\n"), t);
   }
 }
 function getUA(item = {}) {
