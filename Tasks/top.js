@@ -206,7 +206,7 @@ const getList = async (item) => {
     })
     .join("\n");
   // $.msg($.name, $.stitle, $.content)
-  await showMsg($.name, $.stitle, $.content);
+  await showMsg($.name, $.stitle, $.content, { updateTime: $.updateTime });
 })()
   .catch((error) => $.logErr(error))
   .finally(() => $.done({}));
@@ -218,11 +218,10 @@ function getWeek() {
     num: day,
   };
 }
-async function showMsg(n, o, i, t) {
-  if ($.isNode()) {
-    const content = [i];
-    if (showTime && $.updateTime) {
-      content.push(`🕒 更新时间: ${$.updateTime}`);
+async function showMsg(n, o, i, t = {}) {
+  const content = [i];
+  if (showTime && t.updateTime) {
+    content.push(`🕒 更新时间: ${t.updateTime}`);
     }
     const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
     const mediaUrl = t?.["media-url"] || t?.mediaUrl || t?.$media;
