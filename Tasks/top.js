@@ -57,6 +57,15 @@ const showTime = $.toObj($.isNode() ? process.env.TOP_SHOW_TIME : $.getdata("top
 const uaMode = $.isNode() ? process.env.TOP_UA_MODE : $.getdata("top_ua_mode") || "auto";
 const customUA = $.isNode() ? process.env.TOP_UA : $.getdata("top_ua");
 const defaultUA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36";
+const PLATFORM_MAP = {
+  "微博": "weibo",
+  "知乎": "zhihu",
+  "抖音": "douyin",
+  "百度": "baidu",
+  "百度贴吧": "tieba",
+  "哔哩哔哩": "bilibili",
+  "今日头条": "toutiao"
+};
 const CATEGORY = [
   {
     name: "微博",
@@ -206,7 +215,12 @@ const getList = async (item) => {
     })
     .join("\n");
   // $.msg($.name, $.stitle, $.content)
-  await showMsg($.name, $.stitle, $.content, { updateTime: $.updateTime });
+  const platformKey = PLATFORM_MAP[request.name] || encodeURIComponent(request.name);
+  const openUrl = `https://daily-hot-sq.vercel.app/#/list?type=${platformKey}`;
+  await showMsg($.name, $.stitle, $.content, {
+    updateTime: $.updateTime,
+    "open-url": openUrl
+  });
 })()
   .catch((error) => $.logErr(error))
   .finally(() => $.done({}));
@@ -218,14 +232,20 @@ function getWeek() {
     num: day,
   };
 }
+function formatTime(isoStr) {
+  const date = new Date(isoStr);
+  date.setHours(date.getHours() + 8); // 转为 CST（中国标准时间）
+  const pad = (n) => n.toString().padStart(2, "0");
+  return `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日 ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+}
 async function showMsg(n, o, i, t = {}) {
   const content = [i];
   if (showTime && t.updateTime) {
-    content.push(`🕒 更新时间: ${t.updateTime}`);
+    content.push(`🕒 更新时间: ${formatTime(t.updateTime)}`);
   }
-  const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
+  // const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
   const mediaUrl = t?.["media-url"] || t?.mediaUrl || t?.$media;
-  openUrl && content.push(`🔗打开链接: ${openUrl}`);
+  // openUrl && content.push(`🔗打开链接: ${openUrl}`);
   mediaUrl && content.push(`🎬媒体链接: ${mediaUrl}`);
 
   if ($.isNode()) {
