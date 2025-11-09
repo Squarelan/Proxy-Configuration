@@ -35,7 +35,14 @@
         "top_ua_zhihu_mode",
         "top_ua_zhihu_custom",
         "top_ua_toutiao_mode",
-        "top_ua_toutiao_custom"
+        "top_ua_toutiao_custom",
+        "top_user_select_monday",
+        "top_user_select_tuesday",
+        "top_user_select_wednesday",
+        "top_user_select_thursday",
+        "top_user_select_friday",
+        "top_user_select_saturday",
+        "top_user_select_sunday"
     ],
       "settings": [
         {
@@ -85,6 +92,55 @@
               "label": "哔哩哔哩"
             }
           ]
+        },
+        {
+          "id": "top_user_select_monday",
+          "name": "周一选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_tuesday",
+          "name": "周二选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_wednesday",
+          "name": "周三选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_tursday",
+          "name": "周四选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_friday",
+          "name": "周五选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_saturday",
+          "name": "周六选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
+        },
+        {
+          "id": "top_user_select_sunday",
+          "name": "周日选择热搜源",
+          "val": null,
+          "type": "radios",
+          "items": [ /* 与原配置相同 */ ]
         },
         {
           "id": "top_limit",

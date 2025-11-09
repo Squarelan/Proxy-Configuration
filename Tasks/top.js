@@ -66,6 +66,9 @@ const PLATFORM_MAP = {
   "哔哩哔哩": "bilibili",
   "今日头条": "toutiao"
 };
+const weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+const today = new Date().getDay();
+const weekKey = `top_user_select_${weekDays[today]}`;
 const CATEGORY = [
   {
     name: "微博",
@@ -122,7 +125,7 @@ const notify = $.isNode() ? require("./sendNotify") : "";
 // 调试模式
 $.logLevel = $.toObj($.isNode() ? process.env[`TOP_DEBUG`] : $.getdata(`top_debug`)) ? "debug" : "info";
 // 用户选择
-$.selected = $.isNode() ? process.env.TOP_USER_SELECT : $.getdata("top_user_select");
+$.selected = $.isNode() ? process.env[weekKey.toUpperCase()] : ($.getdata(weekKey) || $.getdata("top_user_select"));
 // 展示条数, 默认只显示top10
 $.limit = $.isNode() ? process.env.TOP_LIMIT : $.getdata("top_limit") || 10;
 const getList = async (item) => {
