@@ -234,7 +234,6 @@ function getWeek() {
 }
 function formatTime(isoStr) {
   const date = new Date(isoStr);
-  date.setHours(date.getHours() + 8); // 转为 CST（中国标准时间）
   const pad = (n) => n.toString().padStart(2, "0");
   return `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日 ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
 }
