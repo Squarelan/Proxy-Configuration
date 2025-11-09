@@ -1,9 +1,9 @@
 /******************************************
  * @name 热搜榜单
  * @platform 微博、知乎、头条、抖音、百度、哔哩哔哩、百度贴吧
- * @author 𝐎𝐍𝐙𝟑𝐕
- * @update 20241017
- * @version 1.1.0
+ * @author 𝐎𝐍𝐙𝟑𝐕、Squarelan
+ * @update 20251109
+ * @version 1.2.0
 ******************************************
 脚本声明:
 1.此脚本仅用于学习研究，不保证其合法性、准确性、有效性，请根据情况自行判断，本人对此不承担任何保证责任。
@@ -34,7 +34,7 @@ Quantumult X配置:
 ************************
 
 [task_local]
-30 6-23 * * * https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/top.js, tag=热搜榜单, img-url=https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png, enabled=true
+30 6-23 * * * https://raw.githubusercontent.com//Squarelan/Proxy-Configuration/main/Tasks/top.js, tag=热搜榜单, img-url=https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png, enabled=true
 
 ************************
 Loon配置: 
