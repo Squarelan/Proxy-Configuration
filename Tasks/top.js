@@ -1,7 +1,7 @@
 /******************************************
  * @name 热搜榜单
  * @platform 微博、知乎、头条、抖音、百度、哔哩哔哩、百度贴吧
- * @author 𝐎𝐍𝐙𝟑𝐕、Squarelan
+ * @author 𝐎𝐍𝐙𝟑𝐕、Yuheng0101、Squarelan
  * @update 20251109
  * @version 1.2.0
 ******************************************
@@ -41,52 +41,71 @@ Loon配置:
 ************************
 
 [Script]
-cron "30 6-23 * * *" script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/top.js, timeout=10, tag=热搜榜单, img-url=https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png
+cron "30 6-23 * * *" script-path=https://raw.githubusercontent.com//Squarelan/Proxy-Configuration/main/Tasks/top.js, timeout=10, tag=热搜榜单, img-url=https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png
 
 ************************
 Surge配置: 
 ************************
 [Script]
-热搜榜单 = type=cron,cronexp=0 30 6-23 * * *,wake-system=1,script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/top.js,timeout=60
+热搜榜单 = type=cron,cronexp=0 30 6-23 * * *,wake-system=1,script-path=https://raw.githubusercontent.com//Squarelan/Proxy-Configuration/main/Tasks/top.js,timeout=60
 
 ******************************************/
 const $ = new Env("热搜榜");
+const showHot = $.toObj($.isNode() ? process.env.TOP_SHOW_HOT : $.getdata("top_show_hot"));
+const showDesc = $.toObj($.isNode() ? process.env.TOP_SHOW_DESC : $.getdata("top_show_desc"));
+const showTime = $.toObj($.isNode() ? process.env.TOP_SHOW_TIME : $.getdata("top_show_time"));
+const uaMode = $.isNode() ? process.env.TOP_UA_MODE : $.getdata("top_ua_mode") || "auto";
+const customUA = $.isNode() ? process.env.TOP_UA : $.getdata("top_ua");
+const defaultUA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36";
 const CATEGORY = [
   {
     name: "微博",
-    req: "https://weibo.com/ajax/statuses/hot_band",
-    res: "data.band_list[0].word",
+    req: "https://dailyhotapi-sqapi.vercel.app/weibo",
+    uaMode: $.getdata("top_ua_weibo_mode") || uaMode,
+    customUA: $.getdata("top_ua_weibo_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "抖音",
-    req: "https://aweme.snssdk.com/aweme/v1/hot/search/list/",
-    res: "data.word_list[0].word",
+    req: "https://dailyhotapi-sqapi.vercel.app/douyin",
+    uaMode: $.getdata("top_ua_douyin_mode") || uaMode,
+    customUA: $.getdata("top_ua_douyin_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "今日头条",
-    req: "https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc",
-    res: "data[0].Title",
+    req: "https://dailyhotapi-sqapi.vercel.app/toutiao",
+    uaMode: $.getdata("top_ua_toutiao_mode") || uaMode,
+    customUA: $.getdata("top_ua_toutiao_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "百度",
-    req: `https://top.baidu.com/board?tab=realtime`,
-    before: (body) => $.toObj(body.match(/<!--s-data:(.*?)-->/)[1]).cards[0],
-    res: "content[0].word",
+    req: "https://dailyhotapi-sqapi.vercel.app/baidu",
+    uaMode: $.getdata("top_ua_baidu_mode") || uaMode,
+    customUA: $.getdata("top_ua_baidu_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "百度贴吧",
-    req: "https://tieba.baidu.com/hottopic/browse/topicList",
-    res: "data.bang_topic.topic_list[0].topic_name",
+    req: "https://dailyhotapi-sqapi.vercel.app/tieba",
+    uaMode: $.getdata("top_ua_tieba_mode") || uaMode,
+    customUA: $.getdata("top_ua_tieba_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "哔哩哔哩",
-    req: "https://api.bilibili.com/x/web-interface/ranking/v2",
-    res: "data.list[0].title",
+    req: "https://dailyhotapi-sqapi.vercel.app/bilibili",
+    uaMode: $.getdata("top_ua_bilibili_mode") || uaMode,
+    customUA: $.getdata("top_ua_bilibili_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "知乎",
-    req: "https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=15&desktop=true",
-    res: "data[0].target.title",
+    req: "https://dailyhotapi-sqapi.vercel.app/zhihu",
+    uaMode: $.getdata("top_ua_zhihu_mode") || uaMode,
+    customUA: $.getdata("top_ua_zhihu_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
 ];
 // ./sendNotify
@@ -101,10 +120,11 @@ const getList = async (item) => {
   let opts = item.req;
   opts = typeof opts === "string" ? { url: opts } : opts;
   const method = opts?.method ? opts.method.toLowerCase() : !!opts?.body ? "post" : "get";
-  // 百度不能设置ua
-  if (item.name !== "百度")
-    $.lodash_set(opts, "headers.user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36");
+
+  $.lodash_set(opts, "headers.user-agent", getUA(item));
+  $.debug(`当前使用 UA: ${getUA(item)}`);
   delete opts.method;
+
   try {
     const { body } = await new Promise((resolve, reject) => {
       $[method](opts, (err, resp, body) => {
@@ -112,19 +132,35 @@ const getList = async (item) => {
         else resolve({ resp, body });
       });
     });
+
     let data;
     if (item?.before && typeof item.before === "function") {
       data = item.before(body);
-      if (!item?.res) return data;
+      if (!item?.res) return { data, updateTime: new Date().toISOString() };
     } else {
       data = $.toObj(body);
     }
-    const [l, i] = item.res.split("[0].");
-    const list = $.lodash_get(data, l).map((item) => $.lodash_get(item, i));
-    return list;
+
+    let list;
+    if (typeof item.res === "function") {
+      const arr = Array.isArray(data) ? data : Object.values(data).find(Array.isArray);
+      if (!arr) throw new Error("未找到数组结构用于映射");
+      list = arr.map(item.res);
+    } else {
+      const [l, i] = item.res.split("[0].");
+      list = $.lodash_get(data, l).map((item) => $.lodash_get(item, i)).map((title) => ({ title }));
+    }
+
+    return {
+      data: list,
+      updateTime: data?.updateTime || new Date().toISOString()
+    };
   } catch (e) {
     $.logErr(e);
-    return [];
+    return {
+      data: [],
+      updateTime: new Date().toISOString()
+    };
   }
 };
 
@@ -139,6 +175,7 @@ const getList = async (item) => {
       $.debug(`请求参数: ${JSON.stringify(request.req)}`);
     } else $.debug(`当前填写分类不属于[${category.join(",")}]`);
   }
+
   if (!request) {
     $.debug(`系统进行自选操作`);
     const today = getWeek();
@@ -146,8 +183,12 @@ const getList = async (item) => {
     request = CATEGORY[today.num];
     $.stitle += `,为你推荐[${request.name}]热搜`;
   }
-  let list = await getList(request);
+  // 改成获取完整结果对象
+  const result = await getList(request);
+  const list = result.data;
   if (!list.length) throw new Error("获取热搜榜单失败...");
+  // 设置更新时间
+  $.updateTime = typeof result?.updateTime === "string" ? result.updateTime : new Date().toISOString();
   if ($.limit < 0 || $.limit > list.length) {
     $.error(`当前设置[limit]不合法, 已默认为10`);
     $.limit = 10;
@@ -155,11 +196,15 @@ const getList = async (item) => {
     $.limit = $.isNode() ? list.length : Number($.limit);
     $.debug(`设置的[limit]为: ${$.limit}`);
   }
-  $.content = list
-    .map((it, idx) => `【${operator((idx + 1).toString().padStart(2, "0"))}】${it}`)
+    $.content = list
     .slice(0, $.limit)
-    .join("\n")
-    .replace(/\n$/, "");
+    .map((it, idx) => {
+      let line = `【${operator((idx + 1).toString().padStart(2, "0"))}】${it.title}`;
+      if (showHot && it.hot) line += ` 🔥${it.hot}`;
+      if (showDesc && it.desc) line += `\n📄 ${it.desc}`;
+      return line;
+    })
+    .join("\n");
   // $.msg($.name, $.stitle, $.content)
   await showMsg($.name, $.stitle, $.content);
 })()
@@ -176,6 +221,9 @@ function getWeek() {
 async function showMsg(n, o, i, t) {
   if ($.isNode()) {
     const content = [i];
+    if (showTime && $.updateTime) {
+      content.push(`🕒 更新时间: ${$.updateTime}`);
+    }
     const openUrl = t?.["open-url"] || t?.url || t?.mediaUrl || t?.$open;
     const mediaUrl = t?.["media-url"] || t?.mediaUrl || t?.$media;
     openUrl && content.push(`🔗打开链接: ${openUrl}`);
@@ -189,6 +237,16 @@ async function showMsg(n, o, i, t) {
   } else {
     // !$.notifyWithMedia && ['media-url', 'mediaUrl', '$media'].map((key) => delete t[key])
     await $.msg(n, o, i, t);
+  }
+}
+function getUA(item = {}) {
+  const mode = item.uaMode || uaMode;
+  const ua = item.customUA || customUA;
+  switch (mode) {
+    case "desktop": return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/129 Safari/537.36";
+    case "mobile": return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile Safari/604.1";
+    case "custom": return ua || defaultUA;
+    default: return defaultUA;
   }
 }
 // prettier-ignore
