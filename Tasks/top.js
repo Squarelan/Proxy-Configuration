@@ -220,7 +220,7 @@ const getList = async (item) => {
   // $.msg($.name, $.stitle, $.content)
   const platformKey = PLATFORM_MAP[request.name] || encodeURIComponent(request.name);
   const openUrl = `https://daily-hot-sq.vercel.app/#/list?type=${platformKey}`;
-  await showMsg('', $.stitle, $.content, {
+  await showMsg($.stitle, '', $.content, {
     updateTime: $.updateTime,
     "open-url": openUrl
   });
