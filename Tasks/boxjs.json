@@ -19,6 +19,7 @@
       "keys": [
         "top_debug",
         "top_user_select",
+        "top_number_style",
         "top_user_select_monday",
         "top_user_select_tuesday",
         "top_user_select_wednesday",
@@ -54,6 +55,19 @@
           "val": false,
           "type": "boolean",
           "desc": "开启后输出详细日志"
+        },
+        {
+          "id": "top_number_style",
+          "name": "🔢 序号样式",
+          "val": "normal",
+          "type": "radios",
+          "desc": "选择热搜序号的显示方式",
+          "items": [
+            { "key": "normal", "label": "普通数字（01、02...）" },
+            { "key": "math", "label": "数学字体（𝟎𝟏、𝟎𝟐...）" },
+            { "key": "circle", "label": "圆形序号（①②③...）" },
+            { "key": "hash", "label": "井号样式（#01、#02...）" }
+          ]
         },
         {
           "id": "top_user_select",

@@ -182,7 +182,7 @@ const getList = async (item) => {
     const category = CATEGORY.map((it) => it.name);
     if (category.includes($.selected)) {
       request = CATEGORY.find((it) => it.name === $.selected);
-      $.stitle = `[${request.name}热搜]`;
+      $.stitle = `✨ ${request.name} • 热榜 ✨`;
       $.debug(`当前用户选择的是: ${$.selected}`);
       $.debug(`请求参数: ${JSON.stringify(request.req)}`);
     } else $.debug(`当前填写分类不属于[${category.join(",")}]`);
@@ -191,9 +191,7 @@ const getList = async (item) => {
   if (!request) {
     $.debug(`系统进行自选操作`);
     const today = getWeek();
-    $.stitle = `今天是${today.str}`;
-    request = CATEGORY[today.num];
-    $.stitle += `,为你推荐[${request.name}]热搜`;
+    $.stitle = `🎯 ${today.str} • 为你推荐 ${request.name}热榜`;
   }
   // 改成获取完整结果对象
   const result = await getList(request);
@@ -208,15 +206,36 @@ const getList = async (item) => {
     $.limit = $.isNode() ? list.length : Number($.limit);
     $.debug(`设置的[limit]为: ${$.limit}`);
   }
-    $.content = list
-    .slice(0, $.limit)
-    .map((it, idx) => {
-      let line = `【${operator((idx + 1).toString().padStart(2, "0"))}】${it.title}`;
-      if (showHot && it.hot) line += ` 🔥${it.hot}`;
-      if (showDesc && it.desc) line += `\n📄 ${it.desc}`;
-      return line;
-    })
-    .join("\n");
+  // 获取序号样式配置
+  const numberStyle = $.isNode() ? process.env.TOP_NUMBER_STYLE : $.getdata("top_number_style") || "normal";
+  // 定义序号生成函数
+  function getNumberStyle(index, style) {
+    const num = index + 1;
+    const numStr = String(num).padStart(2, "0");
+    const circleNumbers = ["❌", "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮", "⑯", "⑰", "⑱", "⑲", "⑳"];
+  
+    switch(style) {
+      case "math":
+        return operator(numStr);  // ✅ 调用 operator 函数
+      case "circle":
+        return circleNumbers[num] || num;
+      case "hash":
+        return `#${numStr}`;
+      case "normal":
+      default:
+        return numStr;
+    }
+  }
+  $.content = list
+      .slice(0, $.limit)
+      .map((it, idx) => {
+        const numStr = getNumberStyle(idx, numberStyle);
+        let line = `【${numStr}】${it.title}`;
+        if (showHot && it.hot) line += ` 🔥${it.hot}`;
+        if (showDesc && it.desc) line += `\n📄 ${it.desc}`;
+        return line;
+      })
+      .join("\n");
   // $.msg($.name, $.stitle, $.content)
   const platformKey = PLATFORM_MAP[request.name] || encodeURIComponent(request.name);
   const openUrl = `https://daily-hot-sq.vercel.app/#/list?type=${platformKey}`;
