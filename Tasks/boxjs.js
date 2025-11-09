@@ -1,0 +1,299 @@
+{
+  "id": "squarelan.app.sub",
+  "name": "Squarelan 脚本订阅",
+  "author": "@Squarelan",
+  "icon": "https://avatars.githubusercontent.com/u/46771456",
+  "repo": "https://github.com/Squarelan/Proxy-Configuration",
+  "apps": [
+    {
+      "id": "yuheng.top",
+      "name": "热搜聚合",
+      "descs_html": [
+        "<p>1.自行选择</p>",
+        "<p>2.系统自动选择</p>",
+        "<a target='_blank' href='https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/top.js'>跳转脚本</a>"
+      ],
+      "keys": [
+        "top_debug",
+        "top_user_select",
+        "top_limit",
+        "top_show_hot",
+        "top_show_desc",
+        "top_show_time",
+        "top_ua_mode",
+        "top_ua",
+        "top_ua_weibo_mode",
+        "top_ua_weibo_custom",
+        "top_ua_douyin_mode",
+        "top_ua_douyin_custom",
+        "top_ua_baidu_mode",
+        "top_ua_baidu_custom",
+        "top_ua_baidutieba_mode",
+        "top_ua_baidutieba_custom",
+        "top_ua_bilibili_mode",
+        "top_ua_bilibili_custom",
+        "top_ua_zhihu_mode",
+        "top_ua_zhihu_custom",
+        "top_ua_toutiao_mode",
+        "top_ua_toutiao_custom"
+    ],
+      "settings": [
+        {
+          "id": "top_debug",
+          "name": "是否开启调试模式",
+          "val": false,
+          "type": "boolean",
+          "desc": ""
+        },
+        {
+          "id": "top_user_select",
+          "name": "自行选择通知类型",
+          "val": null,
+          "type": "radios",
+          "desc": "",
+          "items": [
+            {
+              "key": null,
+              "label": "系统帮选"
+            },
+            {
+              "key": "微博",
+              "label": "微博"
+            },
+            {
+              "key": "知乎",
+              "label": "知乎"
+            },
+            {
+              "key": "今日头条",
+              "label": "今日头条"
+            },
+            {
+              "key": "抖音",
+              "label": "抖音"
+            },
+            {
+              "key": "百度",
+              "label": "百度"
+            },
+            {
+              "key": "百度贴吧",
+              "label": "百度贴吧"
+            },
+            {
+              "key": "哔哩哔哩",
+              "label": "哔哩哔哩"
+            }
+          ]
+        },
+        {
+          "id": "top_limit",
+          "name": "通知条数",
+          "val": 10,
+          "type": "number",
+          "desc": "不建议超过20条[通知会截断]，选择以下选项时建议，不超过10条"
+        },
+        {
+          "id": "top_show_hot",
+          "name": "显示热度值",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否在每条热搜后显示热度 🔥"
+        },
+        {
+          "id": "top_show_desc",
+          "name": "显示描述内容",
+          "val": false,
+          "type": "boolean",
+          "desc": "是否在标题下方显示简介 📄"
+        },
+        {
+          "id": "top_show_time",
+          "name": "显示更新时间",
+          "val": true,
+          "type": "boolean",
+          "desc": "是否在通知中显示更新时间 🕒"
+        },
+        {
+          "id": "top_ua_mode",
+          "name": "UA 模式选择",
+          "val": "auto",
+          "type": "radios",
+          "desc": "用于请求热搜接口的 UA 模式",
+          "items": [
+            {
+              "key": "auto",
+              "label": "自动识别（默认）"
+            },
+            {
+              "key": "desktop",
+              "label": "桌面 UA"
+            },
+            {
+              "key": "mobile",
+              "label": "移动 UA"
+            },
+            {
+              "key": "custom",
+              "label": "自定义 UA（需填写下方）"
+            }
+          ]
+        },
+        {
+          "id": "top_ua",
+          "name": "自定义 UA 字符串",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_weibo_mode",
+          "name": "微博 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_weibo_custom",
+          "name": "微博自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_douyin_mode",
+          "name": "抖音 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_douyin_custom",
+          "name": "抖音自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_baidu_mode",
+          "name": "百度 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_baidu_custom",
+          "name": "百度自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_baidutieba_mode",
+          "name": "百度贴吧 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_baidutieba_custom",
+          "name": "百度贴吧自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_bilibili_mode",
+          "name": "哔哩哔哩 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_bilibili_custom",
+          "name": "哔哩哔哩自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_zhihu_mode",
+          "name": "知乎 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_zhihu_custom",
+          "name": "知乎自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        },
+        {
+          "id": "top_ua_toutiao_mode",
+          "name": "今日头条 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局 UA 设置",
+          "items": [
+            { "key": null, "label": "跟随全局设置" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA（需填写下方）" }
+          ]
+        },
+        {
+          "id": "top_ua_toutiao_custom",
+          "name": "今日头条自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择“自定义 UA”时生效"
+        }
+      ],
+      "author": "@Squarelan",
+      "repo": "https://github.com/Squarelan/Proxy-Configuration",
+      "icons": [
+        "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png",
+        "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png"
+      ],
+      "script": "https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/top.js"
+    }
+  ]
+}
