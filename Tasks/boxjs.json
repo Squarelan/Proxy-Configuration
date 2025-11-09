@@ -6,7 +6,7 @@
   "repo": "https://github.com/Squarelan/Proxy-Configuration",
   "apps": [
     {
-      "id": "yuheng.top",
+      "id": "squarelan.top",
       "name": "热搜聚合",
       "descs_html": [
         "<p>1.自行选择</p>",
