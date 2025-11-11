@@ -1,17 +1,19 @@
 {
   "dns": {
     "servers": [
-      {"tag": "smartdns", "type": "udp", "server": "127.0.0.1:5335"},
+      {"tag": "local", "type": "udp", "server": "223.5.5.5"},
+      {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
+      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
       {"tag": "fakeip", "type": "fakeip", "inet4_range": "28.0.0.1/8", "inet6_range": "fc00::/18"}
     ],
     "rules": [
-      {"clash_mode": "direct", "server": "smartdns"},
+      {"clash_mode": "direct", "server": "local"},
       {"clash_mode": "global", "server": "fakeip"},
-      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "smartdns"},
-      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "smartdns"},
+      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "foreign"},
+      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
     ],
-    "final": "smartdns",
+    "final": "foreign",
     "strategy": "ipv4_only",
     "independent_cache": true,
     "reverse_mapping": true
@@ -101,7 +103,7 @@
       {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 全球直连"}
     ],
     "final": "🐠 漏网之鱼",
-    "default_domain_resolver": {"server": "smartdns"}
+    "default_domain_resolver": {"server": "public" }
   },
   "inbounds": [
     {
