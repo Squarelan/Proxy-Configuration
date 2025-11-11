@@ -1,19 +1,17 @@
 {
   "dns": {
     "servers": [
-      {"tag": "local", "type": "udp", "server": "223.5.5.5"},
-      {"tag": "public", "type": "https", "server": "dns.alidns.com", "domain_resolver": "local"},
-      {"tag": "foreign", "type": "https", "server": "8.8.8.8", "detour": "🚀 默认代理"},
-      {"tag": "fakeip", "type": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"}
+      {"tag": "smartdns", "type": "udp", "server": "127.0.0.1:5335"},
+      {"tag": "fakeip", "type": "fakeip", "inet4_range": "28.0.0.1/8", "inet6_range": "fc00::/18"}
     ],
     "rules": [
-      {"clash_mode": "direct", "server": "local"},
+      {"clash_mode": "direct", "server": "smartdns"},
       {"clash_mode": "global", "server": "fakeip"},
-      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "foreign"},
-      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "local"},
+      {"domain_suffix": ["services.googleapis.cn", "googleapis.cn", "xn--ngstr-lra8j.com"], "server": "smartdns"},
+      {"rule_set": ["geosite-cn", "geosite-steamcn", "geosite-apple"], "server": "smartdns"},
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
     ],
-    "final": "foreign",
+    "final": "smartdns",
     "strategy": "ipv4_only",
     "independent_cache": true,
     "reverse_mapping": true
@@ -32,7 +30,7 @@
     {"tag": "🪟 Microsoft", "type": "selector", "outbounds": ["🔯 日本自动", "🔯 狮城自动", "🔯 台湾自动", "🔯 韩国自动", "🔯 美国自动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🇨🇳 台湾手动", "🇰🇷 韩国手动", "🇺🇲 美国手动", "🐸 手动选择"]},
     {"tag": "🐬 OneDrive", "type": "selector", "outbounds": ["🔯 日本自动", "🔯 狮城自动", "🔯 台湾自动", "🔯 韩国自动", "🔯 美国自动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🇨🇳 台湾手动", "🇰🇷 韩国手动", "🇺🇲 美国手动", "🐸 手动选择"]},
     {"tag": "🍏 Apple", "type": "selector", "outbounds": ["🎯 全球直连", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🇨🇳 台湾手动", "🇰🇷 韩国手动", "🇺🇲 美国手动"]},
-    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 默认代理", "🎯 全球直连"]},
+    {"tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 默认代理", "🐸 手动切换", "🎯 全球直连"]},
     {"tag": "🇭🇰 香港手动", "type": "selector", "outbounds": []},
     {"tag": "🇯🇵 日本手动", "type": "selector", "outbounds": []},
     {"tag": "🇸🇬 狮城手动", "type": "selector", "outbounds": []},
@@ -47,7 +45,7 @@
     {"tag": "🔯 韩国自动", "type": "urltest", "outbounds": [], "interval": "10m", "tolerance": 100},
     {"tag": "🔯 美国自动", "type": "urltest", "outbounds": [], "interval": "10m", "tolerance": 100},
     {"tag": "♻️ 自动选择", "type": "urltest", "outbounds": []},
-    {"tag": "🍃 延迟辅助", "type": "urltest", "outbounds": ["🚀 默认代理", "🎯 全球直连"]},
+    {"tag": "🍃 延迟辅助", "type": "urltest", "outbounds": ["🚀 默认代理", "🐸 手动切换", "🎯 全球直连"]},
     {"tag": "GLOBAL", "type": "selector", "outbounds": ["🚀 默认代理", "🧠 AI", "📹 YouTube", "🍀 Google", "👨‍💻 Github", "📲 Telegram", "🎵 TikTok", "🎥 Netflix", "💶 PayPal", "🎮 Steam", "🪟 Microsoft", "🐬 OneDrive", "🍏 Apple", "🐠 漏网之鱼", "🇭🇰 香港手动", "🇯🇵 日本手动", "🇸🇬 狮城手动", "🇨🇳 台湾手动", "🇰🇷 韩国手动", "🇺🇲 美国手动", "🐸 手动选择", "♻️ 自动选择", "🍃 延迟辅助", "🎯 全球直连"]},
     {"tag": "🎯 全球直连", "type": "direct"}
   ],
@@ -110,7 +108,7 @@
       "tag": "dns-in",
       "type": "direct",
       "listen": "::",
-      "listen_port": 1053
+      "listen_port": 7874
     },
     {
       "tag": "http-in",
