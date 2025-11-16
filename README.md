@@ -103,3 +103,14 @@ Turrit跳转 = https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/m
 - ✅ 所有模块均支持 Surge 和 Egern
 - 🔄 模块会自动更新，无需手动维护
 - 📝 参数可在模块界面直接编辑
+
+---
+
+## 💬 支持
+
+有问题或建议？
+
+- ✈️ 联系我[@Squarelan](https://t.me/Squarelan)
+- 📮 提交 Issue
+- 💭 开启讨论区
+- 🔗 提交 Pull Request
