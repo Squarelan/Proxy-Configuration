@@ -1,7 +1,7 @@
 //Surge 自动切换配置脚本
 
 //[Script]
-//script1 = type=event,event-name=network-changed,script-path=wifi-changed.js
+//script1 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js
 
 const WIFI_DONT_NEED_PROXYS = ['钵钵鸡-5G'];
 const CURRENT_WIFI_SSID_KEY = 'current_wifi_ssid';
