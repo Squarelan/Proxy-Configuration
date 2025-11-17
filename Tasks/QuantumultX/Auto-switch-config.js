@@ -12,7 +12,7 @@
 //也就是说网络环境变化时做一些东西，相当于个钩子函数，在 Auto-switch-config.js 用 $enviorment 去获取 ssid ，有 ssid 就是 wifi ，没 ssid 就是蜂窝。同时也可以根据 ssid 的名字去判断在哪个 wifi 下有网络环境就好办了，然后就是切换配置，用 qx 的$iCloud 去读写那三套的配置，只要不同配置最终写入 result.conf 就行
 
 const isWIFI = $environment.hasOwnProperty('ssid')
-const opSSIDS = ['102']
+const opSSIDS = ['钵钵鸡-5G']
 
 let underOpenwrt = false
 if(isWIFI){
