@@ -1,7 +1,7 @@
 //QX 自动切换配置脚本
 
 //[task_local]
-//event-network Auto-switch-config.js, tag=自动切换配置, enabled=true
+//event-network https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/QuantumultX/Auto-switch-config.js, tag=自动切换配置, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Quantumult_X_1.png, enabled=true
 
 //三套配置说明：
 //result.conf：最终和 QX 关联配置
