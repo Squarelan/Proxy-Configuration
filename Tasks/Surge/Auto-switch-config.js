@@ -8,14 +8,12 @@ const STORAGE_KEY = {
   SWITCH_COUNT: 'switch_count'
 };
 
-// 默认配置（如果没有 BoxJS）
 const DEFAULT_CONFIG = {
   wifiDirectList: ['钵钵鸡-5G'],
   enableSwitch: true,
   showNotification: true
 };
 
-// 从 BoxJS 读取配置，失败则使用默认值
 function getConfig() {
   try {
     const wifiListStr = $persistentStore.read('wifi_direct_list');
@@ -36,6 +34,12 @@ function getConfig() {
 
 const config = getConfig();
 
+$notification.post(
+  'Surge 自动切换',
+  '脚本已执行',
+  `启用状态: ${config.enableSwitch}, WiFi: ${$network.wifi.ssid || '无'}`
+);
+
 if (!config.enableSwitch) {
   $done();
   return;
@@ -46,27 +50,30 @@ if (wifiChanged()) {
   const isDirectWifi = config.wifiDirectList.includes($network.wifi.ssid);
   const mode = isDirectWifi ? 'direct' : 'rule';
   
+  $notification.post(
+    'Surge 出站切换',
+    `即将切换到 ${mode} 模式`,
+    `WiFi: ${wifiSSID}, 直连列表: ${config.wifiDirectList.join(', ')}`
+  );
+  
   try {
+    // 尝试切换
     $surge.setOutboundMode(mode);
     
-    // 记录切换信息
+    $notification.post(
+      'Surge 出站切换',
+      '✅ 切换成功',
+      `已切换为 ${mode === 'direct' ? '直连' : '规则'} 模式`
+    );
+    
     const now = new Date().toLocaleString();
     $persistentStore.write(now, STORAGE_KEY.LAST_SWITCH_TIME);
     const count = parseInt($persistentStore.read(STORAGE_KEY.SWITCH_COUNT) || '0') + 1;
     $persistentStore.write(count.toString(), STORAGE_KEY.SWITCH_COUNT);
-    
-    // 显示通知
-    if (config.showNotification) {
-      $notification.post(
-        'Surge 出站切换',
-        `网络已切换到 ${wifiSSID}`,
-        `已切换为 ${mode === 'direct' ? '直连' : '规则'} 模式`
-      );
-    }
   } catch (e) {
     $notification.post(
       'Surge 出站切换',
-      '切换失败',
+      '❌ 切换失败',
       `错误: ${e.message}`
     );
   }
