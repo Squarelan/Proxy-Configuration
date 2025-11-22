@@ -401,6 +401,54 @@
         "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/9a/d8/77/9ad877c6-e3d7-61a1-3911-5036239a41a6/AppIcon-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/144x144bb.png"
       ],
       "script": "https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/top.js"
+    },
+    {
+      "id": "squarelan.auto-switch",
+      "name": "Surge 自动切换出站",
+  "descs_html": [
+        "<p><strong>📋 功能说明：</strong></p>",
+        "<p>✅ <strong>自动切换模式</strong>：根据连接的 WiFi 自动切换 Surge 出站模式</p>",
+        "<p>✅ <strong>直连 WiFi 管理</strong>：指定 WiFi 下使用直连（direct）模式</p>",
+        "<p>✅ <strong>灵活配置</strong>：支持启用/禁用开关和通知开关</p>",
+        "<p>💡 其他网络默认使用规则（rule）模式</p>",
+        "<a target='_blank' href='https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js'>📄 查看脚本代码</a>"
+      ],
+      "keys": [
+        "wifi_direct_list",
+        "enable_switch",
+        "show_notification"
+      ],
+      "settings": [
+        {
+          "id": "wifi_direct_list",
+          "name": "🏠 直连 WiFi 列表",
+          "val": "钵钵鸡-5G",
+          "type": "textarea",
+          "desc": "每行一个 WiFi SSID，连接到这些 WiFi 时使用直连模式"
+        },
+        {
+          "id": "enable_switch",
+          "name": "⚡ 启用自动切换",
+          "val": true,
+          "type": "boolean",
+          "desc": "关闭后将禁用自动切换功能"
+        },
+        {
+          "id": "show_notification",
+          "name": "🔔 显示切换通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "切换模式时是否显示通知"
+        }
+      ],
+      "author": "@Squarelan",
+      "repo": "https://github.com/Squarelan/Proxy-Configuration",
+      "icons": [
+        "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WiFi.png",
+        "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WiFi.png"
+      ],
+      "script": "https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js"
     }
   ]
+
 }
