@@ -12,8 +12,8 @@ if (wifiChanged()) {
     : 'rule';
   $surge.setOutboundMode(mode);
   $notification.post(
-    'Surge',
-    `WiFi 已切换到 ${$network.wifi.ssid || '手机网络'}`,
+    'Surge 出站切换',
+    `WiFi 已切换到 ${$network.wifi.ssid || '移动网络'}`,
     `已切换为 ${mode === 'direct' ? '直连' : '规则'} 模式`
   );
 }
