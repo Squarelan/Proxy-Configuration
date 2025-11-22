@@ -2,8 +2,14 @@
 // [Script]
 // 自动切换出站模式 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js
 
-const WIFI_DONT_NEED_PROXYS = ['钵钵鸡-5G'];
 const CURRENT_WIFI_SSID_KEY = 'current_wifi_ssid';
+
+// 读取 WiFi 直连列表
+let WIFI_DONT_NEED_PROXYS = ['钵钵鸡-5G'];
+const wifiListStr = $persistentStore.read('wifi_direct_list');
+if (wifiListStr) {
+  WIFI_DONT_NEED_PROXYS = wifiListStr.split('\n').map(s => s.trim()).filter(s => s);
+}
 
 if (wifiChanged()) {
   const mode = WIFI_DONT_NEED_PROXYS.includes($network.wifi.ssid)
