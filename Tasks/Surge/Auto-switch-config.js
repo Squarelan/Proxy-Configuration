@@ -4,31 +4,25 @@
 
 const CURRENT_WIFI_SSID_KEY = 'current_wifi_ssid';
 
-// 读取 WiFi 直连列表（来自 BoxJS 或默认值）
+// 读取 WiFi 直连列表
 let WIFI_DONT_NEED_PROXYS = ['钵钵鸡-5G'];
 const wifiListStr = $persistentStore.read('wifi_direct_list');
 if (wifiListStr) {
   WIFI_DONT_NEED_PROXYS = wifiListStr.split('\n').map(s => s.trim()).filter(s => s);
 }
 
-// 读取是否显示通知
-let showNotification = true;
-try {
-  const val = $persistentStore.read('show_notification');
-  if (val === 'false' || val === false) {
-    showNotification = false;
-  }
-} catch (e) {
-  showNotification = true;
-}
+// 读取是否显示通知（布尔值统一用字符串判断）
+let showNotification = $persistentStore.read('show_notification') !== 'false';
 
-if (wifiChanged()) {
+// 读取是否启用开关（布尔值统一用字符串判断）
+let enableSwitch = $persistentStore.read('enable_switch') !== 'false';
+
+if (enableSwitch && wifiChanged()) {
   const mode = WIFI_DONT_NEED_PROXYS.includes($network.wifi.ssid)
     ? 'direct'
     : 'rule';
   $surge.setOutboundMode(mode);
-  
-  // 只在启用通知时才显示
+
   if (showNotification) {
     $notification.post(
       'Surge 出站切换',
@@ -41,7 +35,9 @@ if (wifiChanged()) {
 function wifiChanged() {
   const currentWifiSSid = $persistentStore.read(CURRENT_WIFI_SSID_KEY);
   const changed = currentWifiSSid !== $network.wifi.ssid;
-  changed && $persistentStore.write($network.wifi.ssid, CURRENT_WIFI_SSID_KEY);
+  if (changed) {
+    $persistentStore.write($network.wifi.ssid, CURRENT_WIFI_SSID_KEY);
+  }
   return changed;
 }
 
