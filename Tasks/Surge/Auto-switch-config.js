@@ -1,4 +1,4 @@
-//Surge 自动切换配置脚本
+//Surge 自动切换出站模式脚本
 
 //[Script]
 //script1 = type=event,event-name=network-changed,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js
