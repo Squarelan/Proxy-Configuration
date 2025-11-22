@@ -405,17 +405,16 @@
     {
       "id": "squarelan.auto-switch",
       "name": "Surge 自动切换出站",
-  "descs_html": [
+      "descs_html": [
         "<p><strong>📋 功能说明：</strong></p>",
         "<p>✅ <strong>自动切换模式</strong>：根据连接的 WiFi 自动切换 Surge 出站模式</p>",
         "<p>✅ <strong>直连 WiFi 管理</strong>：指定 WiFi 下使用直连（direct）模式</p>",
-        "<p>✅ <strong>灵活配置</strong>：支持启用/禁用开关和通知开关</p>",
+        "<p>✅ <strong>灵活配置</strong>：支持通知开关</p>",
         "<p>💡 其他网络默认使用规则（rule）模式</p>",
         "<a target='_blank' href='https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js'>📄 查看脚本代码</a>"
       ],
       "keys": [
         "wifi_direct_list",
-        "enable_switch",
         "show_notification"
       ],
       "settings": [
@@ -425,13 +424,6 @@
           "val": "钵钵鸡-5G",
           "type": "textarea",
           "desc": "每行一个 WiFi SSID，连接到这些 WiFi 时使用直连模式"
-        },
-        {
-          "id": "enable_switch",
-          "name": "⚡ 启用自动切换",
-          "val": true,
-          "type": "boolean",
-          "desc": "关闭后将禁用自动切换功能"
         },
         {
           "id": "show_notification",
@@ -452,3 +444,4 @@
   ]
 
 }
+
