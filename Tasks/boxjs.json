@@ -409,13 +409,14 @@
         "<p><strong>📋 功能说明：</strong></p>",
         "<p>✅ <strong>自动切换模式</strong>：根据连接的 WiFi 自动切换 Surge 出站模式</p>",
         "<p>✅ <strong>直连 WiFi 管理</strong>：指定 WiFi 下使用直连（direct）模式</p>",
-        "<p>✅ <strong>灵活配置</strong>：支持通知开关</p>",
+        "<p>✅ <strong>灵活配置</strong>：支持通知开关和总开关</p>",
         "<p>💡 其他网络默认使用规则（rule）模式</p>",
         "<a target='_blank' href='https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Tasks/Surge/Auto-switch-config.js'>📄 查看脚本代码</a>"
       ],
       "keys": [
         "wifi_direct_list",
-        "show_notification"
+        "show_notification",
+        "enable_switch"
       ],
       "settings": [
         {
@@ -431,6 +432,13 @@
           "val": true,
           "type": "boolean",
           "desc": "切换模式时是否显示通知"
+        },
+        {
+          "id": "enable_switch",
+          "name": "⚡ 启用自动切换",
+          "val": true,
+          "type": "boolean",
+          "desc": "总开关，关闭后脚本不再自动切换模式"
         }
       ],
       "author": "@Squarelan",
@@ -444,4 +452,3 @@
   ]
 
 }
-
