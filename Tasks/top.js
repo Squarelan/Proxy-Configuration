@@ -64,7 +64,8 @@ const PLATFORM_MAP = {
   "百度": "baidu",
   "百度贴吧": "tieba",
   "哔哩哔哩": "bilibili",
-  "今日头条": "toutiao"
+  "今日头条": "toutiao",
+  "腾讯新闻": "qq-news"
 };
 const weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 const today = new Date().getDay();
@@ -89,6 +90,13 @@ const CATEGORY = [
     req: "https://dailyhotapi-sqapi.vercel.app/toutiao",
     uaMode: $.getdata("top_ua_toutiao_mode") || uaMode,
     customUA: $.getdata("top_ua_toutiao_custom") || customUA,
+    res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
+  },
+  {
+    name: "腾讯新闻",
+    req: "https://dailyhotapi-sqapi.vercel.app/qq-news",
+    uaMode: $.getdata("top_ua_qq_mode") || uaMode,
+    customUA: $.getdata("top_ua_qq_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
