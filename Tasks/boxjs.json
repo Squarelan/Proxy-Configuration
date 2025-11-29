@@ -46,7 +46,9 @@
         "top_ua_zhihu_mode",
         "top_ua_zhihu_custom",
         "top_ua_toutiao_mode",
-        "top_ua_toutiao_custom"
+        "top_ua_toutiao_custom",
+        "top_ua_qq_mode",
+        "top_ua_qq_custom"
       ],
       "settings": [
         {
@@ -80,6 +82,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -97,6 +100,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -114,6 +118,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -131,6 +136,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -148,6 +154,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -165,6 +172,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -182,6 +190,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -199,6 +208,7 @@
             { "key": "微博", "label": "微博" },
             { "key": "知乎", "label": "知乎" },
             { "key": "今日头条", "label": "今日头条" },
+            { "key": "腾讯新闻", "label": "腾讯新闻" },
             { "key": "抖音", "label": "抖音" },
             { "key": "百度", "label": "百度" },
             { "key": "百度贴吧", "label": "百度贴吧" },
@@ -392,6 +402,26 @@
           "val": "",
           "type": "text",
           "desc": "仅在选择「自定义 UA」时生效"
+        },
+        {
+          "id": "top_ua_qq_mode",
+          "name": "腾讯新闻 UA 模式",
+          "val": null,
+          "type": "radios",
+          "desc": "覆盖全局设置（为空则跟随全局）",
+          "items": [
+            { "key": null, "label": "跟随全局" },
+            { "key": "desktop", "label": "桌面 UA" },
+            { "key": "mobile", "label": "移动 UA" },
+            { "key": "custom", "label": "自定义 UA" }
+          ]
+        },
+        {
+          "id": "top_ua_qq_custom",
+          "name": "腾讯新闻自定义 UA",
+          "val": "",
+          "type": "text",
+          "desc": "仅在选择「自定义 UA」时生效"
         }
       ],
       "author": "@Squarelan",
@@ -452,3 +482,4 @@
   ]
 
 }
+
