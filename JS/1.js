@@ -1,6 +1,9 @@
-const params = getParams($argument);
-const cityId = params.cityId || "101020100";
-const apiUrl = "http://t.weather.sojson.com/api/weather/city/" + cityId;
+var params = {};
+if (typeof $argument !== 'undefined' && $argument) {
+  params = getParams($argument);
+}
+var cityId = params.cityId || "101020100";
+var apiUrl = "http://t.weather.sojson.com/api/weather/city/" + cityId;
 
 $httpClient.get(apiUrl, function(error, response, data) {
   if (error) {
@@ -27,10 +30,11 @@ $httpClient.get(apiUrl, function(error, response, data) {
 });
 
 function getParams(param) {
-  return Object.fromEntries(
-    param
-      .split("&")
-      .map(function(item) { return item.split("="); })
-      .map(function(pair) { return [pair[0], decodeURIComponent(pair[1])]; })
-  );
+  var result = {};
+  var pairs = param.split("&");
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split("=");
+    result[pair[0]] = decodeURIComponent(pair[1]);
+  }
+  return result;
 }
