@@ -1,7 +1,7 @@
 #!name=今日天气通知
 #!desc=每天指定时间发送天气通知
-#!arguments=城市代码:101020100,通知时间:0800
-#!arguments-desc=城市代码列表：北京:101010100\n通知时间：24小时制四位数字，如 0800 表示8点，1430 表示下午2点30分
+#!arguments=城市代码:101020100,定时cron:0 8 * * *
+#!arguments-desc=城市代码列表：北京:101010100\n定时cron：格式为 "分钟 小时 * * *"，如 "0 8 * * *" 表示8点，"30 14 * * *" 表示14点30分
 
 [Script]
-天气通知=type=scheduled,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}},cron=0 8 * * *
+天气通知=type=scheduled,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}},cron={{{定时cron}}}
