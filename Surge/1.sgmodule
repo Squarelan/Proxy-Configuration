@@ -1,7 +1,11 @@
-#!name=今日天气通知
-#!desc=每天指定时间发送天气通知
-#!arguments=城市代码:101020100,定时cron:47 7 * * *
-#!arguments-desc=城市代码列表：北京:101010100\n定时cron：Cron表达式，格式 "分 时 日 月 周"，如 "0 8 * * *" 表示8点，"39 7 * * *" 表示7点39分
+#!name=今日天气
+#!desc=面板实时显示天气详情，每天定时通知简化版天气
+#!arguments=城市代码:101020100,面板刷新:3600,定时cron:39 7 * * *
+#!arguments-desc=城市代码列表：北京:101010100\n面板刷新：刷新间隔(秒)\n定时cron：Cron表达式，格式 "分 时 日 月 周"，如 "0 8 * * *" 表示8点
+
+[Panel]
+天气=script-name=天气·面板,update-interval={{{面板刷新}}}
 
 [Script]
-天气通知=type=cron,cronexp={{{定时cron}}},timeout=20,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}}
+天气·面板=type=generic,timeout=60,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}}&mode=panel
+天气·通知=type=cron,cronexp={{{定时cron}}},timeout=20,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}}&mode=notify
