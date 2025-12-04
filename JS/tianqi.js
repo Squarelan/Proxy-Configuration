@@ -1,5 +1,6 @@
 const params = getParams($argument);
 const cityId = params.cityId || "101190401";
+const notifyTime = params.notifyTime || "0800"; // 从参数读取时间
 const apiUrl = `http://t.weather.sojson.com/api/weather/city/${cityId}`;
 
 $httpClient.get(apiUrl, (error, response, data) => {
