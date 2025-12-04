@@ -4,4 +4,4 @@
 #!arguments-desc=城市代码列表：北京:101010100\n通知时间：24小时制四位数字，如 0800 表示8点，1430 表示下午2点30分
 
 [Script]
-天气通知=type=scheduled,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/tianqi.js,argument=cityId={{{城市代码}}},cron=0 8 * * *
+天气通知=type=scheduled,script-path=https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/JS/1.js,argument=cityId={{{城市代码}}},cron=0 8 * * *
