@@ -1,10 +1,8 @@
-const $ = new Env("天气");
-
 var params = {};
 if (typeof $argument !== 'undefined' && $argument) {
   params = getParams($argument);
 }
-var cityId = params.cityId || "101190401";
+var cityId = params.cityId || "101020100";
 var mode = params.mode || "panel";
 var apiUrl = "http://t.weather.sojson.com/api/weather/city/" + cityId;
 
@@ -29,13 +27,11 @@ $httpClient.get(apiUrl, function(error, response, data) {
     // 通知模式
     var subtitle = "🌡︎温度：" + currentWeather.low + " / " + currentWeather.high + " | 🌤︎天气：" + currentWeather.type;
     var body = "💧湿度：" + weatherData.data.shidu + " | 🌪️风力：" + currentWeather.fl + " | 💨空气质量：" + weatherData.data.quality;
-    var openUrl = "https://www.weather.com.cn/weather1d/" + cityId + ".shtml";
     
-    $.msg(
+    $notification.post(
       cityInfo.city + "  ·  天气",
       subtitle,
-      body,
-      {"open-url": openUrl}
+      body
     );
   } else {
     // Panel 模式
