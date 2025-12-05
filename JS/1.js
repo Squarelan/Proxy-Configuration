@@ -25,8 +25,8 @@ $httpClient.get(apiUrl, function(error, response, data) {
   
   if (mode === "notify") {
     // 通知模式
-    var subtitle = 🌡︎温度：" + currentWeather.low + " / " + currentWeather.high + " | "🌤︎天气：" + currentWeather.type + ";
-    var body = 💧湿度：" + weatherData.data.shidu + " | 🌪️风力：" + currentWeather.fl + " | 💨空气质量：" + weatherData.data.quality + ";
+    var subtitle = "🌡︎温度：" + currentWeather.low + " / " + currentWeather.high + " | 🌤︎天气：" + currentWeather.type;
+    var body = "💧湿度：" + weatherData.data.shidu + " | 🌪️风力：" + currentWeather.fl + " | 💨空气质量：" + weatherData.data.quality;
     
     $notification.post(
       cityInfo.city + " - 天气",
