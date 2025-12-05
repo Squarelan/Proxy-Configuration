@@ -1,8 +1,10 @@
+const $ = new Env("天气");
+
 var params = {};
 if (typeof $argument !== 'undefined' && $argument) {
   params = getParams($argument);
 }
-var cityId = params.cityId || "101020100";
+var cityId = params.cityId || "101190401";
 var mode = params.mode || "panel";
 var apiUrl = "http://t.weather.sojson.com/api/weather/city/" + cityId;
 
