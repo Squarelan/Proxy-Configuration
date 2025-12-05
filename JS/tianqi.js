@@ -1,63 +1,62 @@
-const params = getParams($argument);
-const cityId = params.cityId || "101190401";
-const notifyTime = params.notifyTime || "0800"; // 从参数读取时间
-const apiUrl = `http://t.weather.sojson.com/api/weather/city/${cityId}`;
+var params = {};
+if (typeof $argument !== 'undefined' && $argument) {
+  params = getParams($argument);
+}
+var cityId = params.cityId || "101190401";
+var mode = params.mode || "panel";
+var apiUrl = "http://t.weather.sojson.com/api/weather/city/" + cityId;
 
-$httpClient.get(apiUrl, (error, response, data) => {
+$httpClient.get(apiUrl, function(error, response, data) {
   if (error) {
     console.log(error);
     $done();
     return;
   }
 
-  const weatherData = JSON.parse(data);
+  var weatherData = JSON.parse(data);
   if (weatherData.status !== 200) {
-    console.log(`请求失败，状态码：${weatherData.status}`);
+    console.log("请求失败，状态码：" + weatherData.status);
     $done();
     return;
   }
 
-  const cityInfo = weatherData.cityInfo;
-  const currentWeather = weatherData.data.forecast[0];
+  var cityInfo = weatherData.cityInfo;
+  var currentWeather = weatherData.data.forecast[0];
   
-  // 判断运行模式
-  const mode = params["script-mode"] || "panel";
-  
-  if (mode === "notification") {
-    // 通知模式 - 简化内容
-    const subtitle = `${currentWeather.low}°/${currentWeather.high}° ${currentWeather.type}`;
-    const body = `💧湿度${weatherData.data.shidu} | 🌪️${currentWeather.fl} | 💨${weatherData.data.quality}`;
+  if (mode === "notify") {
+    // 通知模式
+    var subtitle = "🌡︎温度：" + currentWeather.low + " / " + currentWeather.high + " | 🌤︎天气：" + currentWeather.type;
+    var body = "💧湿度：" + weatherData.data.shidu + " | 🌪️风力：" + currentWeather.fl + " | 💨空气质量：" + weatherData.data.quality;
     
     $notification.post(
-      `${cityInfo.city} - 今日天气`,
+      cityInfo.city + "  ·  天气",
       subtitle,
       body,
-      {
-        "open-url": "weather://"
-      }
+      {"open-url": "https://www.weather.com.cn/weather1d/" + cityId + ".shtml"}
     );
   } else {
-    // Panel 模式 - 详细内容
-    const message = `📍城市：${cityInfo.city}\n🕰︎更新时间：${cityInfo.updateTime} \n🌤︎天气：${currentWeather.type}\n🌡︎温度：${currentWeather.low}°  ${currentWeather.high}°\n💧湿度：${weatherData.data.shidu}\n💨空气质量：${weatherData.data.quality}\n☁️PM2.5：${weatherData.data.pm25}\n☁️PM10：${weatherData.data.pm10}\n🪁风向：${currentWeather.fx}\n🌪️风力：${currentWeather.fl}\n🌅日出时间：${currentWeather.sunrise}\n🌇日落时间：${currentWeather.sunset}\n🏷︎Tips：${currentWeather.notice}`;
+    // Panel 模式
+    var message = "📍城市：" + cityInfo.city + "\n🕰︎更新时间：" + cityInfo.updateTime + " \n🌤︎天气：" + currentWeather.type + "\n🌡︎温度：" + currentWeather.low + "  " + currentWeather.high + "\n💧湿度：" + weatherData.data.shidu + "\n💨空气质量：" + weatherData.data.quality + "\n☁️PM2.5：" + weatherData.data.pm25 + "\n☁️PM10：" + weatherData.data.pm10 + "\n🪁风向：" + currentWeather.fx + "\n🌪️风力：" + currentWeather.fl + "\n🌅日出时间：" + currentWeather.sunrise + "\n🌇日落时间：" + currentWeather.sunset + "\n🏷︎Tips：" + currentWeather.notice;
 
-    const body = {
+    var body = {
       title: "今日天气",
       content: message,
       cityId: params.cityId,
-      icon: params.icon,
-      "icon-color": params.color
+      icon: params.icon || "sun.max.fill",
+      "icon-color": params.color || "#ffc400"
     };
     $done(body);
   }
 });
 
 function getParams(param) {
-  return Object.fromEntries(
-    param
-      .split("&")
-      .map((item) => item.split("="))
-      .map(([k, v]) => [k, decodeURIComponent(v)])
-  );
+  var result = {};
+  var pairs = param.split("&");
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split("=");
+    result[pair[0]] = decodeURIComponent(pair[1]);
+  }
+  return result;
 }
 
 
