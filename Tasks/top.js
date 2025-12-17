@@ -73,56 +73,56 @@ const weekKey = `top_user_select_${weekDays[today]}`;
 const CATEGORY = [
   {
     name: "微博",
-    req: "https://dailyhotapi-sqapi.vercel.app/weibo",
+    req: "https://hotapi.squarelans.dpdns.org/weibo",
     uaMode: $.getdata("top_ua_weibo_mode") || uaMode,
     customUA: $.getdata("top_ua_weibo_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "抖音",
-    req: "https://dailyhotapi-sqapi.vercel.app/douyin",
+    req: "https://hotapi.squarelans.dpdns.org/douyin",
     uaMode: $.getdata("top_ua_douyin_mode") || uaMode,
     customUA: $.getdata("top_ua_douyin_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "今日头条",
-    req: "https://dailyhotapi-sqapi.vercel.app/toutiao",
+    req: "https://hotapi.squarelans.dpdns.org/toutiao",
     uaMode: $.getdata("top_ua_toutiao_mode") || uaMode,
     customUA: $.getdata("top_ua_toutiao_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "腾讯新闻",
-    req: "https://dailyhotapi-sqapi.vercel.app/qq-news",
+    req: "https://hotapi.squarelans.dpdns.org/qq-news",
     uaMode: $.getdata("top_ua_qq_mode") || uaMode,
     customUA: $.getdata("top_ua_qq_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "百度",
-    req: "https://dailyhotapi-sqapi.vercel.app/baidu",
+    req: "https://hotapi.squarelans.dpdns.org/baidu",
     uaMode: $.getdata("top_ua_baidu_mode") || uaMode,
     customUA: $.getdata("top_ua_baidu_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "百度贴吧",
-    req: "https://dailyhotapi-sqapi.vercel.app/tieba",
+    req: "https://hotapi.squarelans.dpdns.org/tieba",
     uaMode: $.getdata("top_ua_tieba_mode") || uaMode,
     customUA: $.getdata("top_ua_tieba_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "哔哩哔哩",
-    req: "https://dailyhotapi-sqapi.vercel.app/bilibili",
+    req: "https://hotapi.squarelans.dpdns.org/bilibili",
     uaMode: $.getdata("top_ua_bilibili_mode") || uaMode,
     customUA: $.getdata("top_ua_bilibili_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
   },
   {
     name: "知乎",
-    req: "https://dailyhotapi-sqapi.vercel.app/zhihu",
+    req: "https://hotapi.squarelans.dpdns.org/zhihu",
     uaMode: $.getdata("top_ua_zhihu_mode") || uaMode,
     customUA: $.getdata("top_ua_zhihu_custom") || customUA,
     res: (item) => ({ title: item.title, hot: item.hot, desc: item.desc })
@@ -246,7 +246,7 @@ const getList = async (item) => {
       .join("\n");
   // $.msg($.name, $.stitle, $.content)
   const platformKey = PLATFORM_MAP[request.name] || encodeURIComponent(request.name);
-  const openUrl = `https://daily-hot-sq.vercel.app/#/list?type=${platformKey}`;
+  const openUrl = `https://hot.squarelans.dpdns.org/#/list?type=${platformKey}`;
   await showMsg($.stitle, '', $.content, {
     updateTime: $.updateTime,
     "open-url": openUrl
