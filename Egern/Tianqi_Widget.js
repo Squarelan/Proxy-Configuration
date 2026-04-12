@@ -104,8 +104,8 @@ function renderSmall(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [6, 14, 12, 14],
-    gap: 6,
+    padding: [4, 14, 10, 14],
+    gap: 4,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -121,7 +121,7 @@ function renderSmall(weather, refreshAfter) {
               {
                 type: 'text',
                 text: weather.city,
-                font: { size: 'headline', weight: 'bold' },
+                font: { size: 'subheadline', weight: 'bold' },
                 textColor: '#FFFFFF',
                 maxLines: 1,
                 minScale: 0.7,
@@ -147,20 +147,20 @@ function renderSmall(weather, refreshAfter) {
           {
             type: 'image',
             src: `sf-symbol:${theme.icon}`,
-            width: 34,
-            height: 34,
+            width: 30,
+            height: 30,
             color: theme.iconColor,
           },
           {
             type: 'stack',
             direction: 'column',
-            gap: 2,
+            gap: 1,
             flex: 1,
             children: [
               {
                 type: 'text',
                 text: `${weather.currentTemp}°`,
-                font: { size: 30, weight: 'bold' },
+                font: { size: 27, weight: 'bold' },
                 textColor: '#FFFFFF',
               },
               {
@@ -196,8 +196,8 @@ function renderMedium(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [8, 16, 14, 16],
-    gap: 6,
+    padding: [4, 14, 10, 14],
+    gap: 4,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -216,14 +216,14 @@ function renderMedium(weather, refreshAfter) {
               {
                 type: 'image',
                 src: 'sf-symbol:location.fill',
-                width: 14,
-                height: 14,
+                width: 12,
+                height: 12,
                 color: '#FFFFFF',
               },
               {
                 type: 'text',
                 text: weather.city,
-                font: { size: 'title3', weight: 'bold' },
+                font: { size: 'headline', weight: 'bold' },
                 textColor: '#FFFFFF',
                 maxLines: 1,
                 minScale: 0.7,
@@ -234,7 +234,7 @@ function renderMedium(weather, refreshAfter) {
           {
             type: 'text',
             text: weather.updateTime ? `更新 ${weather.updateTime}` : '实时天气',
-            font: { size: 'caption1', weight: 'medium' },
+            font: { size: 'caption2', weight: 'medium' },
             textColor: '#FFFFFFCC',
             maxLines: 1,
             minScale: 0.8,
@@ -245,31 +245,31 @@ function renderMedium(weather, refreshAfter) {
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
-        gap: 14,
+        gap: 10,
         children: [
           {
             type: 'image',
             src: `sf-symbol:${theme.icon}`,
-            width: 56,
-            height: 56,
+            width: 46,
+            height: 46,
             color: theme.iconColor,
           },
           {
             type: 'stack',
             direction: 'column',
-            gap: 3,
+            gap: 1,
             flex: 1,
             children: [
               {
                 type: 'text',
                 text: `${weather.currentTemp}°C`,
-                font: { size: 32, weight: 'bold' },
+                font: { size: 29, weight: 'bold' },
                 textColor: '#FFFFFF',
               },
               {
                 type: 'text',
                 text: weather.today.weather,
-                font: { size: 'subheadline', weight: 'medium' },
+                font: { size: 'footnote', weight: 'medium' },
                 textColor: '#FFFFFFE6',
                 maxLines: 1,
                 minScale: 0.7,
@@ -277,7 +277,7 @@ function renderMedium(weather, refreshAfter) {
               {
                 type: 'text',
                 text: `${weather.today.low}° / ${weather.today.high}°`,
-                font: { size: 'footnote', weight: 'medium' },
+                font: { size: 'caption1', weight: 'medium' },
                 textColor: '#FFFFFFCC',
                 maxLines: 1,
               },
@@ -287,7 +287,7 @@ function renderMedium(weather, refreshAfter) {
             type: 'stack',
             direction: 'column',
             alignItems: 'end',
-            gap: 3,
+            gap: 1,
             children: [
               createBadge('空气', weather.quality, getQualityColor(weather.quality)),
               createBadge('PM2.5', weather.pm25, '#FFFFFFCC'),
@@ -298,7 +298,7 @@ function renderMedium(weather, refreshAfter) {
       {
         type: 'stack',
         direction: 'row',
-        gap: 10,
+        gap: 8,
         children: [
           createInfoCard('humidity.fill', '湿度', weather.humidity, '#5AC8FA'),
           createInfoCard('wind', '风向', weather.today.windDir, '#C084FC'),
@@ -317,8 +317,8 @@ function renderLarge(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [8, 18, 16, 18],
-    gap: 8,
+    padding: [4, 18, 12, 18],
+    gap: 5,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -329,7 +329,7 @@ function renderLarge(weather, refreshAfter) {
           {
             type: 'text',
             text: weather.city,
-            font: { size: 'title2', weight: 'bold' },
+            font: { size: 'title3', weight: 'bold' },
             textColor: '#FFFFFF',
             maxLines: 1,
             minScale: 0.7,
@@ -338,7 +338,7 @@ function renderLarge(weather, refreshAfter) {
           {
             type: 'text',
             text: weather.updateTime ? `更新 ${weather.updateTime}` : '实时天气',
-            font: { size: 'caption1', weight: 'medium' },
+            font: { size: 'caption2', weight: 'medium' },
             textColor: '#FFFFFFCC',
             maxLines: 1,
             minScale: 0.8,
@@ -349,31 +349,31 @@ function renderLarge(weather, refreshAfter) {
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
-        gap: 16,
+        gap: 12,
         children: [
           {
             type: 'image',
             src: `sf-symbol:${theme.icon}`,
-            width: 64,
-            height: 64,
+            width: 54,
+            height: 54,
             color: theme.iconColor,
           },
           {
             type: 'stack',
             direction: 'column',
-            gap: 3,
+            gap: 1,
             flex: 1,
             children: [
               {
                 type: 'text',
                 text: `${weather.currentTemp}°C`,
-                font: { size: 34, weight: 'bold' },
+                font: { size: 31, weight: 'bold' },
                 textColor: '#FFFFFF',
               },
               {
                 type: 'text',
                 text: `${weather.today.weather} · ${weather.today.low}° / ${weather.today.high}°`,
-                font: { size: 'subheadline', weight: 'medium' },
+                font: { size: 'footnote', weight: 'medium' },
                 textColor: '#FFFFFFE6',
                 maxLines: 1,
                 minScale: 0.7,
@@ -381,7 +381,7 @@ function renderLarge(weather, refreshAfter) {
               {
                 type: 'text',
                 text: `空气 ${weather.quality} · 湿度 ${weather.humidity}`,
-                font: { size: 'footnote', weight: 'medium' },
+                font: { size: 'caption1', weight: 'medium' },
                 textColor: '#FFFFFFCC',
                 maxLines: 1,
                 minScale: 0.7,
@@ -393,7 +393,7 @@ function renderLarge(weather, refreshAfter) {
       {
         type: 'stack',
         direction: 'row',
-        gap: 10,
+        gap: 8,
         children: [
           createInfoCard('sunrise.fill', '日出', weather.today.sunrise, '#FDBA74'),
           createInfoCard('sunset.fill', '日落', weather.today.sunset, '#FB7185'),
@@ -611,9 +611,9 @@ function createInfoCard(icon, label, value, iconColor) {
   return {
     type: 'stack',
     direction: 'column',
-    gap: 5,
+    gap: 3,
     flex: 1,
-    padding: 10,
+    padding: [7, 8],
     backgroundColor: '#FFFFFF1A',
     borderRadius: 14,
     children: [
@@ -626,8 +626,8 @@ function createInfoCard(icon, label, value, iconColor) {
           {
             type: 'image',
             src: `sf-symbol:${icon}`,
-            width: 14,
-            height: 14,
+            width: 12,
+            height: 12,
             color: iconColor,
           },
           {
@@ -643,7 +643,7 @@ function createInfoCard(icon, label, value, iconColor) {
       {
         type: 'text',
         text: value,
-        font: { size: 'callout', weight: 'semibold' },
+        font: { size: 'footnote', weight: 'semibold' },
         textColor: '#FFFFFF',
         maxLines: 1,
         minScale: 0.65,
@@ -657,7 +657,7 @@ function createBadge(label, value, color) {
     type: 'stack',
     direction: 'column',
     alignItems: 'end',
-    gap: 1,
+    gap: 0,
     children: [
       {
         type: 'text',
@@ -669,7 +669,7 @@ function createBadge(label, value, color) {
       {
         type: 'text',
         text: value,
-        font: { size: 'headline', weight: 'bold' },
+        font: { size: 'subheadline', weight: 'bold' },
         textColor: color,
         maxLines: 1,
         minScale: 0.7,
