@@ -105,10 +105,10 @@ function renderSmall(weather, refreshAfter) {
     url: weatherURL(weather.cityId),
     refreshAfter,
     padding: [4, 14, 10, 14],
-    gap: 4,
+    gap: 2,
     backgroundGradient: theme.backgroundGradient,
     children: [
-      {
+      createTopInsetSection({
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
@@ -137,7 +137,7 @@ function renderSmall(weather, refreshAfter) {
             maxLines: 1,
           },
         ],
-      },
+      }, 2, 17),
       {
         type: 'stack',
         direction: 'row',
@@ -197,10 +197,10 @@ function renderMedium(weather, refreshAfter) {
     url: weatherURL(weather.cityId),
     refreshAfter,
     padding: [4, 14, 10, 14],
-    gap: 4,
+    gap: 2,
     backgroundGradient: theme.backgroundGradient,
     children: [
-      {
+      createTopInsetSection({
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
@@ -240,7 +240,7 @@ function renderMedium(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      },
+      }, 2, 19),
       {
         type: 'stack',
         direction: 'row',
@@ -318,10 +318,10 @@ function renderLarge(weather, refreshAfter) {
     url: weatherURL(weather.cityId),
     refreshAfter,
     padding: [4, 18, 12, 18],
-    gap: 5,
+    gap: 3,
     backgroundGradient: theme.backgroundGradient,
     children: [
-      {
+      createTopInsetSection({
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
@@ -344,7 +344,7 @@ function renderLarge(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      },
+      }, 2, 21),
       {
         type: 'stack',
         direction: 'row',
@@ -674,6 +674,18 @@ function createBadge(label, value, color) {
         maxLines: 1,
         minScale: 0.7,
       },
+    ],
+  };
+}
+
+function createTopInsetSection(content, topInset, height) {
+  return {
+    type: 'stack',
+    direction: 'column',
+    height,
+    children: [
+      { type: 'spacer', length: topInset },
+      content,
     ],
   };
 }
