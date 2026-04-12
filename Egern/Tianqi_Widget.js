@@ -104,8 +104,8 @@ function renderSmall(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [10, 14, 14, 14],
-    gap: 8,
+    padding: [6, 14, 12, 14],
+    gap: 6,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -196,8 +196,8 @@ function renderMedium(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [12, 16, 16, 16],
-    gap: 10,
+    padding: [8, 16, 14, 16],
+    gap: 6,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -250,8 +250,8 @@ function renderMedium(weather, refreshAfter) {
           {
             type: 'image',
             src: `sf-symbol:${theme.icon}`,
-            width: 62,
-            height: 62,
+            width: 56,
+            height: 56,
             color: theme.iconColor,
           },
           {
@@ -263,13 +263,13 @@ function renderMedium(weather, refreshAfter) {
               {
                 type: 'text',
                 text: `${weather.currentTemp}°C`,
-                font: { size: 34, weight: 'bold' },
+                font: { size: 32, weight: 'bold' },
                 textColor: '#FFFFFF',
               },
               {
                 type: 'text',
                 text: weather.today.weather,
-                font: { size: 'headline', weight: 'medium' },
+                font: { size: 'subheadline', weight: 'medium' },
                 textColor: '#FFFFFFE6',
                 maxLines: 1,
                 minScale: 0.7,
@@ -287,7 +287,7 @@ function renderMedium(weather, refreshAfter) {
             type: 'stack',
             direction: 'column',
             alignItems: 'end',
-            gap: 5,
+            gap: 3,
             children: [
               createBadge('空气', weather.quality, getQualityColor(weather.quality)),
               createBadge('PM2.5', weather.pm25, '#FFFFFFCC'),
@@ -317,8 +317,8 @@ function renderLarge(weather, refreshAfter) {
     type: 'widget',
     url: weatherURL(weather.cityId),
     refreshAfter,
-    padding: [14, 18, 18, 18],
-    gap: 12,
+    padding: [8, 18, 16, 18],
+    gap: 8,
     backgroundGradient: theme.backgroundGradient,
     children: [
       {
@@ -354,8 +354,8 @@ function renderLarge(weather, refreshAfter) {
           {
             type: 'image',
             src: `sf-symbol:${theme.icon}`,
-            width: 72,
-            height: 72,
+            width: 64,
+            height: 64,
             color: theme.iconColor,
           },
           {
@@ -367,13 +367,13 @@ function renderLarge(weather, refreshAfter) {
               {
                 type: 'text',
                 text: `${weather.currentTemp}°C`,
-                font: { size: 38, weight: 'bold' },
+                font: { size: 34, weight: 'bold' },
                 textColor: '#FFFFFF',
               },
               {
                 type: 'text',
                 text: `${weather.today.weather} · ${weather.today.low}° / ${weather.today.high}°`,
-                font: { size: 'headline', weight: 'medium' },
+                font: { size: 'subheadline', weight: 'medium' },
                 textColor: '#FFFFFFE6',
                 maxLines: 1,
                 minScale: 0.7,
