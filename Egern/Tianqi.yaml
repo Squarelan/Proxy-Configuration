@@ -1,0 +1,36 @@
+name: 今日天气
+description: 基于中国天气接口的 Egern 小组件，适配主屏与锁屏尺寸。
+author: Squarelan
+homepage: https://github.com/Squarelan/Proxy-Configuration
+icon: cloud.sun.fill
+manual: https://github.com/Squarelan/Proxy-Configuration/blob/main/Surge/Tianqi.sgmodule
+
+env_schema:
+  CITY_ID:
+    name: 城市代码
+    description: |
+      填写中国天气城市代码，例如：
+      北京 101010100
+      上海 101020100
+      广州 101280101
+      深圳 101280601
+      杭州 101210101
+      更多城市代码可参考仓库内 Surge/Tianqi.sgmodule 的参数说明。
+    default_value: "101020100"
+  REFRESH_MINUTES:
+    name: 刷新间隔（分钟）
+    description: 小组件建议刷新间隔，建议 15-120 分钟。
+    default_value: "30"
+
+scriptings:
+  - generic:
+      name: tianqi-widget
+      script_url: https://raw.githubusercontent.com/Squarelan/Proxy-Configuration/main/Egern/Tianqi_Widget.js
+      timeout: 20
+
+widgets:
+  - name: 今日天气
+    script_name: tianqi-widget
+    env:
+      CITY_ID: "101020100"
+      REFRESH_MINUTES: "30"
