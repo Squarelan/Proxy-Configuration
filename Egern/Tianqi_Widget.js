@@ -137,7 +137,7 @@ function renderSmall(weather, refreshAfter) {
             maxLines: 1,
           },
         ],
-      }, 3, 19),
+      }, 3, 20),
       {
         type: 'stack',
         direction: 'row',
@@ -225,7 +225,7 @@ function renderMedium(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      }, 4, 23),
+      }, 4, 25),
       {
         type: 'stack',
         direction: 'row',
@@ -329,7 +329,7 @@ function renderLarge(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      }, 4, 25),
+      }, 4, 27),
       {
         type: 'stack',
         direction: 'row',
