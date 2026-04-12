@@ -137,7 +137,7 @@ function renderSmall(weather, refreshAfter) {
             maxLines: 1,
           },
         ],
-      }, 2, 17),
+      }, 3, 19),
       {
         type: 'stack',
         direction: 'row',
@@ -204,31 +204,16 @@ function renderMedium(weather, refreshAfter) {
         type: 'stack',
         direction: 'row',
         alignItems: 'start',
-        gap: 8,
+        gap: 6,
         children: [
           {
-            type: 'stack',
-            direction: 'row',
-            alignItems: 'start',
-            gap: 5,
+            type: 'text',
+            text: weather.city,
             flex: 1,
-            children: [
-              {
-                type: 'image',
-                src: 'sf-symbol:location.fill',
-                width: 12,
-                height: 12,
-                color: '#FFFFFF',
-              },
-              {
-                type: 'text',
-                text: weather.city,
-                font: { size: 'headline', weight: 'bold' },
-                textColor: '#FFFFFF',
-                maxLines: 1,
-                minScale: 0.7,
-              },
-            ],
+            font: { size: 'headline', weight: 'bold' },
+            textColor: '#FFFFFF',
+            maxLines: 1,
+            minScale: 0.7,
           },
           { type: 'spacer' },
           {
@@ -240,7 +225,7 @@ function renderMedium(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      }, 2, 19),
+      }, 4, 23),
       {
         type: 'stack',
         direction: 'row',
@@ -344,7 +329,7 @@ function renderLarge(weather, refreshAfter) {
             minScale: 0.8,
           },
         ],
-      }, 2, 21),
+      }, 4, 25),
       {
         type: 'stack',
         direction: 'row',
