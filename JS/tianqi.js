@@ -33,6 +33,7 @@ $httpClient.get(apiUrl, function(error, response, data) {
       subtitle,
       body
     );
+    $done();
   } else {
     // Panel 模式
     var message = "📍城市：" + cityInfo.city + "\n🕰︎更新时间：" + cityInfo.updateTime + " \n🌤︎天气：" + currentWeather.type + "\n🌡︎温度：" + currentWeather.low + "  " + currentWeather.high + "\n💧湿度：" + weatherData.data.shidu + "\n💨空气质量：" + weatherData.data.quality + "\n☁️PM2.5：" + weatherData.data.pm25 + "\n☁️PM10：" + weatherData.data.pm10 + "\n🪁风向：" + currentWeather.fx + "\n🌪️风力：" + currentWeather.fl + "\n🌅日出时间：" + currentWeather.sunrise + "\n🌇日落时间：" + currentWeather.sunset + "\n🏷︎Tips：" + currentWeather.notice;
