@@ -703,7 +703,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.bolt.rain.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: verticalGradient(['#8B7CF2', '#41369B', '#241C4F', '#120C28'], [0, 0.4, 0.75, 1]),
+      backgroundGradient: verticalGradient(['#2F2469', '#7E6DE6', '#46389E', '#150E2E'], [0, 0.32, 0.6, 1]),
     };
   }
 
@@ -711,7 +711,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.snow.fill',
       iconColor: '#E0F2FE',
-      backgroundGradient: verticalGradient(['#F2F9FE', '#B9CFE0', '#7A94AB', '#4E6177'], [0, 0.4, 0.75, 1]),
+      backgroundGradient: verticalGradient(['#6E8CA6', '#E8F4FC', '#BFD4E4', '#4B5E72'], [0, 0.32, 0.6, 1]),
     };
   }
 
@@ -719,7 +719,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.rain.fill',
       iconColor: '#BCDCFF',
-      backgroundGradient: verticalGradient(['#C9E2FE', '#5C93E6', '#3164CC', '#24499E'], [0, 0.4, 0.75, 1]),
+      backgroundGradient: verticalGradient(['#2E5CB8', '#A8CBFA', '#5B8FE6', '#1E3C8A'], [0, 0.32, 0.6, 1]),
     };
   }
 
@@ -727,7 +727,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'sun.haze.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: verticalGradient(['#F0EFEC', '#B0B1AC', '#757872', '#464944'], [0, 0.4, 0.75, 1]),
+      backgroundGradient: verticalGradient(['#6A6D67', '#E0E1DC', '#AEB0AA', '#393B38'], [0, 0.32, 0.6, 1]),
     };
   }
 
@@ -735,14 +735,14 @@ function getTheme(weatherText = '') {
     return {
       icon: /晴/.test(text) ? 'cloud.sun.fill' : 'cloud.fill',
       iconColor: '#E2E8F0',
-      backgroundGradient: verticalGradient(['#E3ECF3', '#90A8BB', '#566E80', '#374755'], [0, 0.4, 0.75, 1]),
+      backgroundGradient: verticalGradient(['#41566A', '#B0C3D5', '#7E96AA', '#303E4C'], [0, 0.32, 0.6, 1]),
     };
   }
 
   return {
     icon: 'sun.max.fill',
     iconColor: '#FDE68A',
-    backgroundGradient: verticalGradient(['#FFF0C6', '#F7B45F', '#E17B34', '#BE5326'], [0, 0.4, 0.75, 1]),
+    backgroundGradient: verticalGradient(['#A84E20', '#FFD489', '#F6A94F', '#9E3F1E'], [0, 0.32, 0.6, 1]),
   };
 }
 
