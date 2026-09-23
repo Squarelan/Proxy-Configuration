@@ -391,8 +391,13 @@ function renderLarge(weather, refreshAfter) {
         direction: 'column',
         gap: 8,
         padding: 10,
-        backgroundColor: '#FFFFFF1A',
+        backgroundColor: '#FFFFFF10',
         borderRadius: 14,
+        borderWidth: 1,
+        borderColor: '#FFFFFF22',
+        shadowColor: '#00000030',
+        shadowRadius: 8,
+        shadowOffset: { x: 0, y: 2 },
         children: [
           {
             type: 'text',
@@ -599,8 +604,13 @@ function createInfoCard(icon, label, value, iconColor) {
     gap: 3,
     flex: 1,
     padding: [7, 8],
-    backgroundColor: '#FFFFFF1A',
+    backgroundColor: '#FFFFFF12',
     borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#FFFFFF2E',
+    shadowColor: '#00000033',
+    shadowRadius: 8,
+    shadowOffset: { x: 0, y: 2 },
     children: [
       {
         type: 'stack',
@@ -693,7 +703,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.bolt.rain.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: gradient(['#312E81', '#1F2937', '#0F172A']),
+      backgroundGradient: radialGradient(['#8B7CF0', '#5440A6', '#2B2050', '#120C24'], { x: 0.5, y: 0.32 }, 1.5),
     };
   }
 
@@ -701,15 +711,15 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.snow.fill',
       iconColor: '#E0F2FE',
-      backgroundGradient: gradient(['#334155', '#475569', '#64748B']),
+      backgroundGradient: radialGradient(['#FFFFFF', '#C8DAE8', '#8FA6BB', '#5B6F85'], { x: 0.5, y: 0.18 }, 1.4),
     };
   }
 
   if (/(雨|阵雨|雷阵雨)/.test(text)) {
     return {
       icon: 'cloud.rain.fill',
-      iconColor: '#93C5FD',
-      backgroundGradient: gradient(['#1D4ED8', '#2563EB', '#1E40AF']),
+      iconColor: '#BCDCFF',
+      backgroundGradient: radialGradient(['#BFD8F7', '#4A83E0', '#2A5BC4', '#1E3F96'], { x: 0.5, y: 0.25 }, 1.5),
     };
   }
 
@@ -717,7 +727,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'sun.haze.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: gradient(['#4B5563', '#6B7280', '#374151']),
+      backgroundGradient: radialGradient(['#EDEDEA', '#A3A49F', '#6E706B', '#454744'], { x: 0.5, y: 0.2 }, 1.5),
     };
   }
 
@@ -725,14 +735,14 @@ function getTheme(weatherText = '') {
     return {
       icon: /晴/.test(text) ? 'cloud.sun.fill' : 'cloud.fill',
       iconColor: '#E2E8F0',
-      backgroundGradient: gradient(['#475569', '#64748B', '#334155']),
+      backgroundGradient: radialGradient(['#DDE6EE', '#7E93A6', '#4E5F6F', '#33414F'], { x: 0.5, y: 0.22 }, 1.5),
     };
   }
 
   return {
     icon: 'sun.max.fill',
     iconColor: '#FDE68A',
-    backgroundGradient: gradient(['#F97316', '#FB923C', '#FDBA74']),
+    backgroundGradient: radialGradient(['#FFEFC2', '#FFC67A', '#F98E3E', '#D9642A'], { x: 0.08, y: 0.1 }, 1.5),
   };
 }
 
@@ -746,12 +756,13 @@ function getQualityColor(quality = '') {
   return '#FFFFFFCC';
 }
 
-function gradient(colors) {
+function radialGradient(colors, center = { x: 0.5, y: 0.5 }, endRadius = 1.4) {
   return {
-    type: 'linear',
+    type: 'radial',
     colors,
-    startPoint: { x: 0, y: 0 },
-    endPoint: { x: 1, y: 1 },
+    center,
+    startRadius: 0,
+    endRadius,
   };
 }
 
