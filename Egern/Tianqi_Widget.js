@@ -703,7 +703,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.bolt.rain.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: radialGradient(['#9D8CF2', '#5A4AAE', '#31245A', '#140E28'], { x: 0.5, y: -0.12 }, 1.7),
+      backgroundGradient: verticalGradient(['#8B7CF2', '#41369B', '#241C4F', '#120C28'], [0, 0.4, 0.75, 1]),
     };
   }
 
@@ -711,7 +711,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.snow.fill',
       iconColor: '#E0F2FE',
-      backgroundGradient: radialGradient(['#EAF4FB', '#AFC6D8', '#7791A8', '#4E6177'], { x: 0.5, y: -0.12 }, 1.7),
+      backgroundGradient: verticalGradient(['#F2F9FE', '#B9CFE0', '#7A94AB', '#4E6177'], [0, 0.4, 0.75, 1]),
     };
   }
 
@@ -719,7 +719,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.rain.fill',
       iconColor: '#BCDCFF',
-      backgroundGradient: radialGradient(['#C8E0FA', '#5E93E6', '#3366CF', '#24499E'], { x: 0.5, y: -0.12 }, 1.7),
+      backgroundGradient: verticalGradient(['#C9E2FE', '#5C93E6', '#3164CC', '#24499E'], [0, 0.4, 0.75, 1]),
     };
   }
 
@@ -727,7 +727,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'sun.haze.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: radialGradient(['#E8E7E4', '#A6A7A2', '#6F716C', '#484A46'], { x: 0.5, y: -0.12 }, 1.7),
+      backgroundGradient: verticalGradient(['#F0EFEC', '#B0B1AC', '#757872', '#464944'], [0, 0.4, 0.75, 1]),
     };
   }
 
@@ -735,14 +735,14 @@ function getTheme(weatherText = '') {
     return {
       icon: /晴/.test(text) ? 'cloud.sun.fill' : 'cloud.fill',
       iconColor: '#E2E8F0',
-      backgroundGradient: radialGradient(['#DCE6EE', '#88A0B4', '#526A7C', '#374755'], { x: 0.5, y: -0.12 }, 1.7),
+      backgroundGradient: verticalGradient(['#E3ECF3', '#90A8BB', '#566E80', '#374755'], [0, 0.4, 0.75, 1]),
     };
   }
 
   return {
     icon: 'sun.max.fill',
     iconColor: '#FDE68A',
-    backgroundGradient: radialGradient(['#FFEFC2', '#F6C470', '#E28B3D', '#C96A2E'], { x: 0.14, y: -0.05 }, 1.6),
+    backgroundGradient: verticalGradient(['#FFF0C6', '#F7B45F', '#E17B34', '#BE5326'], [0, 0.4, 0.75, 1]),
   };
 }
 
@@ -756,13 +756,13 @@ function getQualityColor(quality = '') {
   return '#FFFFFFCC';
 }
 
-function radialGradient(colors, center = { x: 0.5, y: 0.5 }, endRadius = 1.4) {
+function verticalGradient(colors, stops) {
   return {
-    type: 'radial',
+    type: 'linear',
     colors,
-    center,
-    startRadius: 0,
-    endRadius,
+    stops,
+    startPoint: { x: 0.5, y: 0 },
+    endPoint: { x: 0.5, y: 1 },
   };
 }
 
