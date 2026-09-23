@@ -703,7 +703,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.bolt.rain.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: radialGradient(['#8B7CF0', '#5440A6', '#2B2050', '#120C24'], { x: 0.5, y: 0.32 }, 1.5),
+      backgroundGradient: radialGradient(['#9D8CF2', '#5A4AAE', '#31245A', '#140E28'], { x: 0.5, y: -0.12 }, 1.7),
     };
   }
 
@@ -711,7 +711,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.snow.fill',
       iconColor: '#E0F2FE',
-      backgroundGradient: radialGradient(['#FFFFFF', '#C8DAE8', '#8FA6BB', '#5B6F85'], { x: 0.5, y: 0.18 }, 1.4),
+      backgroundGradient: radialGradient(['#EAF4FB', '#AFC6D8', '#7791A8', '#4E6177'], { x: 0.5, y: -0.12 }, 1.7),
     };
   }
 
@@ -719,7 +719,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.rain.fill',
       iconColor: '#BCDCFF',
-      backgroundGradient: radialGradient(['#BFD8F7', '#4A83E0', '#2A5BC4', '#1E3F96'], { x: 0.5, y: 0.25 }, 1.5),
+      backgroundGradient: radialGradient(['#C8E0FA', '#5E93E6', '#3366CF', '#24499E'], { x: 0.5, y: -0.12 }, 1.7),
     };
   }
 
@@ -727,7 +727,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'sun.haze.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: radialGradient(['#EDEDEA', '#A3A49F', '#6E706B', '#454744'], { x: 0.5, y: 0.2 }, 1.5),
+      backgroundGradient: radialGradient(['#E8E7E4', '#A6A7A2', '#6F716C', '#484A46'], { x: 0.5, y: -0.12 }, 1.7),
     };
   }
 
@@ -735,14 +735,14 @@ function getTheme(weatherText = '') {
     return {
       icon: /晴/.test(text) ? 'cloud.sun.fill' : 'cloud.fill',
       iconColor: '#E2E8F0',
-      backgroundGradient: radialGradient(['#DDE6EE', '#7E93A6', '#4E5F6F', '#33414F'], { x: 0.5, y: 0.22 }, 1.5),
+      backgroundGradient: radialGradient(['#DCE6EE', '#88A0B4', '#526A7C', '#374755'], { x: 0.5, y: -0.12 }, 1.7),
     };
   }
 
   return {
     icon: 'sun.max.fill',
     iconColor: '#FDE68A',
-    backgroundGradient: radialGradient(['#FFEFC2', '#FFC67A', '#F98E3E', '#D9642A'], { x: 0.08, y: 0.1 }, 1.5),
+    backgroundGradient: radialGradient(['#FFEFC2', '#F6C470', '#E28B3D', '#C96A2E'], { x: 0.14, y: -0.05 }, 1.6),
   };
 }
 
