@@ -703,7 +703,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.bolt.rain.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: verticalGradient(['#2F2469', '#7E6DE6', '#46389E', '#150E2E'], [0, 0.32, 0.6, 1]),
+      backgroundGradient: verticalGradient(['#4A3AB7', '#2E2373', '#120C28']),
     };
   }
 
@@ -711,7 +711,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.snow.fill',
       iconColor: '#E0F2FE',
-      backgroundGradient: verticalGradient(['#6E8CA6', '#E8F4FC', '#BFD4E4', '#4B5E72'], [0, 0.32, 0.6, 1]),
+      backgroundGradient: verticalGradient(['#A9C0D6', '#6E8CA6', '#40566C']),
     };
   }
 
@@ -719,7 +719,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'cloud.rain.fill',
       iconColor: '#BCDCFF',
-      backgroundGradient: verticalGradient(['#2E5CB8', '#A8CBFA', '#5B8FE6', '#1E3C8A'], [0, 0.32, 0.6, 1]),
+      backgroundGradient: verticalGradient(['#4A82DD', '#2E5CB8', '#1C3B8A']),
     };
   }
 
@@ -727,7 +727,7 @@ function getTheme(weatherText = '') {
     return {
       icon: 'sun.haze.fill',
       iconColor: '#FDE68A',
-      backgroundGradient: verticalGradient(['#6A6D67', '#E0E1DC', '#AEB0AA', '#393B38'], [0, 0.32, 0.6, 1]),
+      backgroundGradient: verticalGradient(['#A6A8A1', '#72746E', '#3D3F3B']),
     };
   }
 
@@ -735,14 +735,14 @@ function getTheme(weatherText = '') {
     return {
       icon: /晴/.test(text) ? 'cloud.sun.fill' : 'cloud.fill',
       iconColor: '#E2E8F0',
-      backgroundGradient: verticalGradient(['#41566A', '#B0C3D5', '#7E96AA', '#303E4C'], [0, 0.32, 0.6, 1]),
+      backgroundGradient: verticalGradient(['#7E96AA', '#57687E', '#2C3946']),
     };
   }
 
   return {
     icon: 'sun.max.fill',
     iconColor: '#FDE68A',
-    backgroundGradient: verticalGradient(['#A84E20', '#FFD489', '#F6A94F', '#9E3F1E'], [0, 0.32, 0.6, 1]),
+    backgroundGradient: verticalGradient(['#F0A24D', '#D9732B', '#A9471B']),
   };
 }
 
@@ -756,11 +756,10 @@ function getQualityColor(quality = '') {
   return '#FFFFFFCC';
 }
 
-function verticalGradient(colors, stops) {
+function verticalGradient(colors) {
   return {
     type: 'linear',
     colors,
-    stops,
     startPoint: { x: 0.5, y: 0 },
     endPoint: { x: 0.5, y: 1 },
   };
