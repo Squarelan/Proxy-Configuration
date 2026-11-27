@@ -3,10 +3,10 @@
 (async () => {
   const releaseUrl = "https://github.com/DustinWin/BestCF/releases/download/bestcf/";
   const lists = [
-    ["电信", "ctcc-ip.txt"],
-    ["移动", "cmcc-ip.txt"],
-    ["联通", "cucc-ip.txt"],
-    ["综合", "bestcf-ip.txt"],
+    ["📡 电信推荐", "ctcc-ip.txt"],
+    ["📱 移动推荐", "cmcc-ip.txt"],
+    ["📶 联通推荐", "cucc-ip.txt"],
+    ["🌐 综合推荐", "bestcf-ip.txt"],
   ];
 
   function getList(file) {
@@ -45,17 +45,17 @@
   async function getRecommendation([label, file]) {
     try {
       const address = firstIPv4(await getList(file));
-      return `${label} ${address || "列表没有有效 IPv4"}`;
+      return `${label}：${address || "列表没有有效 IPv4"}`;
     } catch (error) {
-      return `${label} 获取失败（${error.message}）`;
+      return `${label}：获取失败（${error.message}）`;
     }
   }
 
   try {
     const recommendations = await Promise.all(lists.map(getRecommendation));
-    const message = recommendations.join("\n");
+    const message = ["三网优选IP已筛选（BestCF 公开列表）：", ...recommendations].join("\n");
     console.log(message);
-    $notification.post("Cloudflare 优选 IP", "", message);
+    $notification.post("Cloudflare 优选IP", "", message);
   } finally {
     $done({});
   }
